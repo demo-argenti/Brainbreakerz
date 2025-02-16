@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://3528rt5yqpcc"]
+
+[ext_resource type="AudioStream" uid="uid://3n5epevuf7ln" path="res://BRBKZTutorial.mp3" id="1_77kaa"]
+[ext_resource type="Script" path="res://conductor.gd" id="1_gxd0s"]
+
+[node name="Conductor" type="AudioStreamPlayer"]
+stream = ExtResource("1_77kaa")
+script = ExtResource("1_gxd0s")
+
+[node name="StartTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjwae1exvwy6f"]
+
+[ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_k58xy"]
+[ext_resource type="Script" path="res://key_listener.gd" id="2_waqgl"]
+
+[node name="KeyListener" type="Sprite2D"]
+texture = ExtResource("1_k58xy")
+hframes = 4
+vframes = 3
+script = ExtResource("2_waqgl")
