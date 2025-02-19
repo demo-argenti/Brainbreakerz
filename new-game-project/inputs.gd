@@ -24,8 +24,8 @@ var lane_name : String
 var has_passed : bool
 
 const PERFECT_RANGE = 0.025
-const GREAT_RANGE = 0.038
-const GOOD_RANGE = 0.5
+const GREAT_RANGE = 0.04
+const GOOD_RANGE = 0.08
 
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 

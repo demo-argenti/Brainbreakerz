@@ -29,14 +29,14 @@ func _physics_process(delta: float) -> void:
 			if hit > 0:
 				input_queue.pop_front()._die()
 				if hit == Global.PERFECT:
-					print ("Perfect!")
+					# print ("Perfect!")
 					$AnimationPlayer.play("perfect_fade")
 				if hit == Global.GREAT:
 					$AnimationPlayer.play("great_fade")
-					print ("Great!")
+					# print ("Great!")
 				if hit == Global.GOOD:
 					$AnimationPlayer.play("good_fade")
-					print ("Good!")
+					# print ("Good!")
 				Global.increment_score.emit(hit)	
 				
 		
