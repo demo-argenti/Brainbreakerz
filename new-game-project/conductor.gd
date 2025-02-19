@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 		# Compensate for output latency.
 		song_position -= AudioServer.get_output_latency()
 		
-		delta_song_pos = song_position-previous_song_pos
+		delta_song_pos = song_position - previous_song_pos
 		previous_song_pos = song_position
 		
 		Global.song_time.emit(song_position)
@@ -56,7 +56,7 @@ func _physics_process(delta: float) -> void:
 			Global.measure.emit(current_song_measure)
 			
 			last_song_beat += quarter_length
-			print(current_song_beat, "  ", current_bar_beat)
+			# print(current_song_beat, "  ", current_bar_beat)
 
 
 

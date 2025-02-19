@@ -1,10 +1,14 @@
 extends Node
 
+# song signals
 signal song_beat(input)
 signal bar_beat(input)
 signal song_time(input)
 signal measure(input)
 signal delta_pos(input)
+
+# score signal
+signal increment_score(precision)
 
 var current_song_position : float
 var current_beat : int
@@ -13,6 +17,8 @@ var current_measure : int
 var current_song_delta : float
 
 var quarter_length : float
+
+enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

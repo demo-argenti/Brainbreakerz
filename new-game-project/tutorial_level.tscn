@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://2qa6nn35lhp1"]
+[gd_scene load_steps=4 format=3 uid="uid://2qa6nn35lhp1"]
 
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://key_listener.tscn" id="1_vid7k"]
 [ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://conductor.tscn" id="2_4p1ch"]
+[ext_resource type="PackedScene" uid="uid://clim1iox8cjuw" path="res://gui.tscn" id="3_ttjqm"]
 
 [node name="TutorialLevel" type="Node2D"]
 
@@ -22,3 +23,5 @@ lane_name = "lower_lane"
 spawn_beat = 2
 
 [node name="Conductor" parent="." instance=ExtResource("2_4p1ch")]
+
+[node name="GUI" parent="." instance=ExtResource("3_ttjqm")]

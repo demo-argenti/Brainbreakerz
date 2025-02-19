@@ -1,10 +1,169 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjwae1exvwy6f"]
+[gd_scene load_steps=9 format=3 uid="uid://bjwae1exvwy6f"]
 
 [ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_k58xy"]
 [ext_resource type="Script" path="res://key_listener.gd" id="2_waqgl"]
+
+[sub_resource type="Animation" id="Animation_qvsin"]
+resource_name = "perfect_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_bf6bh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Great:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Good:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../Miss:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_dxgf0"]
+resource_name = "great_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Great:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ok040"]
+resource_name = "good_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Good:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_a4nrt"]
+resource_name = "miss_fade"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Miss:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_twja2"]
+_data = {
+"RESET": SubResource("Animation_bf6bh"),
+"good_fade": SubResource("Animation_ok040"),
+"great_fade": SubResource("Animation_dxgf0"),
+"miss_fade": SubResource("Animation_a4nrt"),
+"perfect_fade": SubResource("Animation_qvsin")
+}
 
 [node name="KeyListener" type="Sprite2D"]
 texture = ExtResource("1_k58xy")
 hframes = 4
 vframes = 3
 script = ExtResource("2_waqgl")
+
+[node name="Perfect" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 160.0
+offset_bottom = 24.0
+text = "Perfect!"
+
+[node name="Great" type="RichTextLabel" parent="."]
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 160.0
+offset_bottom = 24.0
+text = "Great!"
+
+[node name="Good" type="RichTextLabel" parent="."]
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 160.0
+offset_bottom = 24.0
+text = "Good!"
+
+[node name="Miss" type="RichTextLabel" parent="."]
+offset_left = 48.0
+offset_top = -16.0
+offset_right = 160.0
+offset_bottom = 24.0
+text = "Miss!"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Perfect")
+libraries = {
+"": SubResource("AnimationLibrary_twja2")
+}
