@@ -20,31 +20,33 @@ func _ready() -> void:
 # Called every time step. 'delta' is the elapsed time since the previous time step.
 func _physics_process(delta: float) -> void:
 	if input_queue.size() > 0:
-		if Global.current_song_position> input_queue.front().landing_time + 0.4:
-			input_queue.pop_front()
-			$AnimationPlayer.play("miss_fade")
+		if is_instance_valid(input_queue.front()):
+			if Global.current_song_position> input_queue.front().landing_time + 0.4:
+				input_queue.pop_front()
+				$AnimationPlayer.play("miss_fade")
 			
-		if Input.is_action_just_pressed(lane_name):		
-			var hit = input_queue.front().calculate_hit(Global.current_song_position)
-			if hit > 0:
-				input_queue.pop_front()._die()
-				if hit == Global.PERFECT:
-					# print ("Perfect!")
-					$AnimationPlayer.play("perfect_fade")
-				if hit == Global.GREAT:
-					$AnimationPlayer.play("great_fade")
-					# print ("Great!")
-				if hit == Global.GOOD:
-					$AnimationPlayer.play("good_fade")
-					# print ("Good!")
-				Global.increment_score.emit(hit)	
+			if Input.is_action_just_pressed(lane_name):		
+				var hit = input_queue.front().calculate_hit(Global.current_song_position)
+				if hit > 0:
+					input_queue.pop_front()._die()
+					if hit == Global.PERFECT:
+						# print ("Perfect!")
+						$AnimationPlayer.play("perfect_fade")
+					if hit == Global.GREAT:
+						$AnimationPlayer.play("great_fade")
+						# print ("Great!")
+					if hit == Global.GOOD:
+						$AnimationPlayer.play("good_fade")
+						# print ("Good!")
+					Global.increment_score.emit(hit)	
 				
 		
 		
 		
-# spawns an input note on the spawn beat
+# spawns an input note on the spawn beat. current handling of making sure things don't exceed song length is temporary
+# FIX THIS FUNCTION
 func _on_bar_beat_emmitted(current_bar_beat):
-	if current_bar_beat == spawn_beat:
+	if current_bar_beat == spawn_beat and Global.current_song_position + Global.quarter_length * 9 < Global.current_song_length:
 		spawn_input()
 
 # returns an enum corresponding with the sprite arrow

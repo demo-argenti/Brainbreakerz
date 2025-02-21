@@ -18,6 +18,8 @@ var current_song_delta : float
 
 var quarter_length : float
 
+var current_song_length : float
+
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
 # Called when the node enters the scene tree for the first time.
