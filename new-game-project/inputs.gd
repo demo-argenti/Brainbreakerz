@@ -23,6 +23,8 @@ var lane_name : String
 
 var has_passed : bool
 
+var initial_position : Vector2
+
 const PERFECT_RANGE = 0.025
 const GREAT_RANGE = 0.04
 const GOOD_RANGE = 0.08
@@ -82,8 +84,9 @@ func _process(delta: float) -> void:
 #	if position.x < end_pos.x:
 #		has_passed = true
 	
-	if position.x <= _actual_end_pos.x:
+	if Global.current_song_position > landing_time + Global.quarter_length:
 		_die()
+		
 
 
 # destroys input note

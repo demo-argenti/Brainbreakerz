@@ -21,7 +21,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if input_queue.size() > 0:
 		if is_instance_valid(input_queue.front()):
-			if Global.current_song_position> input_queue.front().landing_time + 0.4:
+			if Global.current_song_position > input_queue.front().landing_time + 0.4:
 				input_queue.pop_front()
 				$AnimationPlayer.play("miss_fade")
 			
@@ -63,7 +63,7 @@ func get_lane_sprite():
 # spawns an input note and adds it to the input_queue
 func spawn_input():
 	var spawned_input = input.instantiate()
-	get_tree().get_root().call_deferred("add_child", spawned_input)
+	get_tree().current_scene.call_deferred("add_child", spawned_input)
 	spawned_input.setup(position, 8, get_lane_sprite(), lane_name)
 	
 	input_queue.push_back(spawned_input)
