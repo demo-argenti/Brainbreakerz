@@ -78,7 +78,7 @@ func _calculate_actual_distance():
 	_actual_end_pos.y = position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	global_position.x -= (actual_distance/flight_duration) * Global.current_song_delta
 	
 #	if position.x < end_pos.x:
