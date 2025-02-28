@@ -1,6 +1,6 @@
 extends Sprite2D
 
-@onready var input = preload("res://inputs.tscn")
+@onready var input = preload("res://objects/inputs.tscn")
 @export var lane_name: String = ""
 
 @export var spawn_beat : int
