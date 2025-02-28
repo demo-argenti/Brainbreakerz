@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://2qa6nn35lhp1"]
+
+[ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="1_ywn4t"]
+[ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor.tscn" id="2_kktrg"]
+[ext_resource type="AudioStream" uid="uid://dupfi00b1su37" path="res://sounds/music/MUS_MVPLoop.mp3" id="3_841rs"]
+[ext_resource type="PackedScene" uid="uid://clim1iox8cjuw" path="res://objects/gui.tscn" id="4_ff2rx"]
+
+[node name="TutorialLevel" type="Node2D"]
+
+[node name="KeyListener" parent="." instance=ExtResource("1_ywn4t")]
+position = Vector2(64, 192)
+lane_name = "upper_lane"
+
+[node name="KeyListener2" parent="." instance=ExtResource("1_ywn4t")]
+position = Vector2(64, 320)
+frame = 2
+lane_name = "middle_lane"
+spawn_beat = 1
+
+[node name="KeyListener3" parent="." instance=ExtResource("1_ywn4t")]
+position = Vector2(64, 448)
+frame = 3
+lane_name = "lower_lane"
+spawn_beat = 2
+
+[node name="Conductor" parent="." instance=ExtResource("2_kktrg")]
+stream = ExtResource("3_841rs")
+
+[node name="GUI" parent="." instance=ExtResource("4_ff2rx")]
