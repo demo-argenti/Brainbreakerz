@@ -16,6 +16,8 @@ func _process(delta):
 func set_file():
 	if FileAccess.file_exists(filename):
 		file = FileAccess.open(filename, FileAccess.READ)
+	else:
+		pass
 
 
 func read_file():
