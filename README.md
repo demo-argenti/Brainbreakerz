@@ -14,7 +14,7 @@ Brainbreakerz is a rhythm game inspired by *Friday Night Funkin'* and *Scott Pil
 
 
 ## How to Play
-If you want to play the build in progress, you must have Godot 4.3 installed. Import the repository when you turn on Godot, open the project, then hit the triangular play button in the top right corner of the editor.
+If you want to play the build in progress, you must have [Godot 4.3](https://godotengine.org/download/archive/) installed. Import the repository when you turn on Godot, open the project, then hit the triangular play button in the top right corner of the editor.
 
 If you want to play the current published build, go to the folder marked **Current Build**, and run the executable in the folder located there.
 
