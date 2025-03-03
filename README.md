@@ -1,11 +1,11 @@
 # Brainbreakerz
  Spring 2025 Game Project
+ 
+Production, Music, Level Design: Bailey Miller
 
 Programming: Daniel Berry
 
 Art: Ali Trent
-
-Production, Music, Level Design: Bailey Miller
 
 ![image](https://github.com/user-attachments/assets/4b74f6f4-e970-4428-b024-236f62b507c4)
 
