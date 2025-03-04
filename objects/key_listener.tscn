@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bjwae1exvwy6f"]
 
 [ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_k58xy"]
-[ext_resource type="Script" path="res://scripts/key_listener.gd" id="2_waqgl"]
+[ext_resource type="Script" uid="uid://c6awssil4456m" path="res://scripts/key_listener.gd" id="2_waqgl"]
 
 [sub_resource type="Animation" id="Animation_bf6bh"]
 length = 0.001
@@ -120,11 +120,11 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_twja2"]
 _data = {
-"RESET": SubResource("Animation_bf6bh"),
-"good_fade": SubResource("Animation_ok040"),
-"great_fade": SubResource("Animation_dxgf0"),
-"miss_fade": SubResource("Animation_a4nrt"),
-"perfect_fade": SubResource("Animation_qvsin")
+&"RESET": SubResource("Animation_bf6bh"),
+&"good_fade": SubResource("Animation_ok040"),
+&"great_fade": SubResource("Animation_dxgf0"),
+&"miss_fade": SubResource("Animation_a4nrt"),
+&"perfect_fade": SubResource("Animation_qvsin")
 }
 
 [node name="KeyListener" type="Sprite2D"]

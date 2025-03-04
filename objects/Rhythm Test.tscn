@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://cy7ylcbx3cnm7"]
 
-[ext_resource type="Script" path="res://scripts/note.gd" id="1_h5ag5"]
+[ext_resource type="Script" uid="uid://3xmktvwgl7nb" path="res://scripts/note.gd" id="1_h5ag5"]
 [ext_resource type="Texture2D" uid="uid://cbojih36t8khu" path="res://icon.svg" id="1_ix621"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_rl1yb"]
@@ -43,8 +43,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6hd2t"]
 _data = {
-"RESET": SubResource("Animation_fngcl"),
-"move_note_normal": SubResource("Animation_jg4cg")
+&"RESET": SubResource("Animation_fngcl"),
+&"move_note_normal": SubResource("Animation_jg4cg")
 }
 
 [node name="Test Scene" type="Node2D"]

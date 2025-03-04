@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d1bdjonlsh73o"]
 
 [ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_vpewo"]
-[ext_resource type="Script" path="res://scripts/inputs.gd" id="2_p8p57"]
+[ext_resource type="Script" uid="uid://kjoiwukrg3x7" path="res://scripts/inputs.gd" id="2_p8p57"]
 
 [node name="Inputs" type="Sprite2D"]
 texture = ExtResource("1_vpewo")
