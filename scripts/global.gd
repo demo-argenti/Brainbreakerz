@@ -11,8 +11,8 @@ signal delta_pos(input)
 signal increment_score(precision)
 
 var current_song_position : float
-var current_beat : int
-var current_bar_beat : int
+var current_beat : float
+var current_bar_beat : float
 var current_measure : int
 var current_song_delta : float
 

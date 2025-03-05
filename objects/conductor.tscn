@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3528rt5yqpcc"]
 
-[ext_resource type="AudioStream" uid="uid://3n5epevuf7ln" path="res://sounds/music/BRBKZTutorial.mp3" id="1_77kaa"]
+[ext_resource type="AudioStream" uid="uid://3n5epevuf7ln" path="res://sounds/music/MUS_WarminUp.mp3" id="1_77kaa"]
 [ext_resource type="Script" uid="uid://cxp16p26p064y" path="res://scripts/conductor.gd" id="1_gxd0s"]
 
 [node name="Conductor" type="AudioStreamPlayer"]

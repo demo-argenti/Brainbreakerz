@@ -2,7 +2,7 @@ extends AudioStreamPlayer
 
 
 @onready var beats_per_bar : int = stream.get_bar_beats()
-@onready var bpm : int = stream.get_bpm()
+@onready var bpm : float = stream.get_bpm()
 @onready var beat_count : int = stream.get_beat_count() #length of song in beats
 @onready var quarter_length : float = 60.0/stream.get_bpm() #length of quarter note in seconds
 @onready var song_measures : int = beat_count/beats_per_bar

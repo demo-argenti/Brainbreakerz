@@ -1,13 +1,18 @@
-extends CharacterBody2D
+class_name Note
+extends Node
 
-@onready var _animation_player = $AnimationPlayer
-@onready var _hit_area = $HitArea
-@export  var input_key: String
+var is_held : bool
+var attack : float
+var end : float
 
-func _physics_process(delta: float) -> void:
-	_animation_player.play("move_note_normal")
-	if Input.is_action_just_pressed(input_key) and _hit_area.overlaps_area($"../NoteChecker"):
-		die()
+func make_held_note(attack, end):
+	is_held = true
+	self.attack = attack
+	self.end = end
 	
-func die():
-	queue_free()
+func make_regular(attack):
+	is_held = false
+	self.attack = attack
+	
+func get_is_held():
+	return is_held
