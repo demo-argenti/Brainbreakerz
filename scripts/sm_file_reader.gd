@@ -2,7 +2,7 @@ extends Node
 
 @export var filename : String
 
-var file
+var file : FileAccess
 
 var song_file : String
 var title : String
@@ -16,13 +16,14 @@ var charts : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_file()
+	read_file()
 
 func set_file():
-	if FileAccess.file_exists(filename):
-		file = FileAccess.open(filename, FileAccess.READ)
-	else:
-		pass
+	file = FileAccess.open(filename, FileAccess.READ)
+	if file == null:
+		var error_str: String = error_string(FileAccess.get_open_error())
+		push_warning("Couldn't open file because: %s" % error_str)
 
 
 func read_file():

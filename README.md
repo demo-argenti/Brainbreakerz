@@ -21,6 +21,3 @@ If you want to play the current published build, go to the folder marked **Curre
 If you want to play one of our previous builds, such as our MVP, click on the folder marked **Previous Builds**, navigate to the folder with the build you want to run, and run the executable located thre.
 
 To play the game, hit the arrow keys corresponding to the colored arrows that appear on screen on the beat when they intersect with the gray arrows. The closer you are to hitting perfectly on the beat, the better your score.
-
-
-

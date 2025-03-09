@@ -2,7 +2,7 @@ class_name Note
 extends Node
 
 var is_held : bool
-var attack : float
+var start : float
 var end : float
 
 func make_held_note(attack, end):

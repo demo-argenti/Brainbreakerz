@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Global="*res://scripts/global.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/sm_file_importer/plugin.cfg")
+
 [input]
 
 upper_lane={
