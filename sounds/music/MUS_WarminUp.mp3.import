@@ -2,7 +2,7 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-uid="uid://3n5epevuf7ln"
+uid="uid://cfkx4q5j6m5fo"
 path="res://.godot/imported/MUS_WarminUp.mp3-631f0b66d8a81e71bdc09b86d9968b01.mp3str"
 
 [deps]
@@ -15,5 +15,5 @@ dest_files=["res://.godot/imported/MUS_WarminUp.mp3-631f0b66d8a81e71bdc09b86d996
 loop=false
 loop_offset=0.0
 bpm=130.0
-beat_count=196
+beat_count=200
 bar_beats=4

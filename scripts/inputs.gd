@@ -88,6 +88,7 @@ func _physics_process(delta: float) -> void:
 		_die()
 		
 
+# distance = speed / time, therefore I need the beat speed in order to calculate note trail lengths
 
 # destroys input note
 func _die():

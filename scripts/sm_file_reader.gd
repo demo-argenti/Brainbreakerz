@@ -1,4 +1,7 @@
+class_name SM_Reader
 extends Node
+
+
 
 @export var filename : String
 
@@ -16,8 +19,7 @@ var charts : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_file()
-	read_file()
+	pass
 
 func set_file():
 	file = FileAccess.open(filename, FileAccess.READ)
@@ -64,11 +66,11 @@ func read_file():
 				if is_searching_for_bpms:
 					#if we found a "=", store data as a bpm
 					if char == "=":
-						bpm_holder = string_holder.to_float()
+						beat_holder = string_holder.to_float()
 						string_holder = ""
 					#if we found a "," or a ";", store data as a beat
 					elif char == "," or char == ";":
-						beat_holder = string_holder.to_float()
+						bpm_holder = string_holder.to_float()
 						bpms.push_back({"bpm" : bpm_holder, "beat" : beat_holder})
 					else:
 						string_holder += char

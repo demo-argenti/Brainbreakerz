@@ -10,6 +10,8 @@ extends AudioStreamPlayer
 
 @onready var last_song_beat : float = 0
 
+@export var chart_name : String
+
 var time_start
 var time_current
 
@@ -26,9 +28,26 @@ var current_song_measure : int = 0
 
 var start_offset : float = 1.0
 
+var note_reader : SM_Reader = SM_Reader.new()
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	note_reader.filename = chart_name
+	note_reader.set_file()
+	note_reader.read_file()
+	
+	self.stream = load(NodePath("res://sounds/music/" + note_reader.song_file))
+	
+	bpm = note_reader.bpms[0].bpm
+	beat_count = stream.get_beat_count()
+	start_offset = note_reader.offset
+	quarter_length = 60.0/bpm
+	beats_per_bar = stream.get_bar_beats()
+	song_measures = beat_count/beats_per_bar
+	
+	Global.note_chart = note_reader.charts
+	Global.note_chart_received.emit()
 	Global.quarter_length = quarter_length
 	Global.current_song_length = stream.get_length()
 	play_with_offset()
@@ -62,14 +81,12 @@ func _physics_process(delta: float) -> void:
 
 
 func play_with_offset():
-	start_timer.wait_time = start_offset - (AudioServer.get_time_since_last_mix() + 
-											AudioServer.get_output_latency())
-	start_timer.start()
+	play(0 - start_offset)
 	
 
 func play_from_beat(beat, offset):
 	play()
-	seek(beat * quarter_length)
+	seek(beat * quarter_length - start_offset)
 
 	
 	current_bar_beat = (beat % beats_per_bar)
