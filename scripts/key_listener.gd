@@ -31,7 +31,8 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed(lane_name):		
 				var hit = input_queue.front().calculate_hit(Global.current_song_position)
 				if hit > 0:
-					input_queue.pop_front()._die()
+					if not input_queue.front().is_held_note:
+						input_queue.pop_front()._die()
 					if hit == Global.PERFECT:
 						# print ("Perfect!")
 						$AnimationPlayer.play("perfect_fade")
