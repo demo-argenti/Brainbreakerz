@@ -7,7 +7,7 @@ Programming: Daniel Berry
 
 Art: Ali Trent
 
-![image](https://github.com/user-attachments/assets/4b74f6f4-e970-4428-b024-236f62b507c4)
+![image](https://github.com/user-attachments/assets/c33536e8-f91c-44b0-a719-d3e60903c661)
 
 ## About
 Brainbreakerz is a rhythm game inspired by *Friday Night Funkin'* and *Scott Pilgrim vs. The World*. It is currently a work in progress. 
