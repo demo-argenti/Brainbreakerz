@@ -9,3 +9,8 @@ hframes = 4
 vframes = 3
 frame = 4
 script = ExtResource("2_p8p57")
+
+[node name="Tail" type="Line2D" parent="."]
+z_index = -1
+points = PackedVector2Array(0, -5, 0, -5)
+width = 40.0

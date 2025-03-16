@@ -47,9 +47,8 @@ func _physics_process(delta: float) -> void:
 		
 		
 func _on_song_time_emmitted(current_song_time):
-	if current_song_time + Global.quarter_length * 4 > input_chart.front().landing_beat * Global.quarter_length:
-		input_chart.pop_front()
-		spawn_input()
+	if !input_chart.is_empty() and current_song_time + Global.quarter_length * 4 > input_chart.front().landing_beat * Global.quarter_length:
+		spawn_input(input_chart.pop_front())
 
 # returns an enum corresponding with the sprite arrow
 func get_lane_sprite():
@@ -73,9 +72,13 @@ func _on_note_chart_received():
 		pass
 
 # spawns an input note and adds it to the input_queue
-func spawn_input():
+func spawn_input(note):
 	var spawned_input = input.instantiate()
 	get_tree().current_scene.call_deferred("add_child", spawned_input)
-	spawned_input.setup(position, 4, get_lane_sprite(), lane_name)
+	if note.is_held_note:
+		var duration = note.ending_beat - note.landing_beat
+		spawned_input.setup(position, 4, get_lane_sprite(), lane_name, note.landing_beat, note.is_held_note, duration)
+	else:
+		spawned_input.setup(position, 4, get_lane_sprite(), lane_name, note.landing_beat, note.is_held_note, 0)
 	
 	input_queue.push_back(spawned_input)
