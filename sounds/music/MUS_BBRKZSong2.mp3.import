@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/MUS_BBRKZSong2.mp3-7837aca96d9e82199ff2b4ba1a
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
-beat_count=0
+loop_offset=0.0
+bpm=150.0
+beat_count=332
 bar_beats=4

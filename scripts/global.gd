@@ -6,9 +6,12 @@ signal bar_beat(input)
 signal song_time(input)
 signal measure(input)
 signal delta_pos(input)
+signal note_chart_received()
 
 # score signal
 signal increment_score(precision)
+
+var note_chart
 
 var current_song_position : float
 var current_beat : float

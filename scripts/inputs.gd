@@ -13,17 +13,24 @@ var actual_distance : float
 var beat_speed : int
 var flight_duration : float
 
-var spawn_beat : int
-var landing_beat : int
+var spawn_beat : float
+var landing_beat : float
 
 var spawn_time : float
 var landing_time : float
+
+#the distance in pixels a note travels in a beat
+var beat_distance : float 
 
 var lane_name : String
 
 var has_passed : bool
 
 var initial_position : Vector2
+
+# handles held notes
+var is_held_note : bool
+var duration : float
 
 const PERFECT_RANGE = 0.025
 const GREAT_RANGE = 0.04
@@ -34,7 +41,7 @@ enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 func _init() -> void:
 	set_process(false)
 
-func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String):
+func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String, spawn_beat : float, is_held_note : bool, duration : float):
 	frame = lane_sprite
 	global_position = Vector2(initial_x_position, spawner_pos.y)
 	end_pos = spawner_pos
@@ -44,11 +51,17 @@ func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String)
 	
 	flight_duration = (beat_speed+1) * Global.quarter_length
 	
-	spawn_beat = Global.current_beat
-	spawn_time = Global.current_song_position
 	
-	landing_beat = spawn_beat + beat_speed
-	landing_time = spawn_time + (beat_speed * Global.quarter_length)
+	beat_distance = distance_to_travel/beat_speed
+	
+	landing_beat = spawn_beat
+	landing_time = spawn_beat * Global.quarter_length
+	
+	self.is_held_note = is_held_note
+	self.duration = duration
+	
+	if is_held_note:
+		$Tail.points[1].x = beat_distance * duration
 	
 	lane_name = lane
 	
@@ -84,10 +97,11 @@ func _physics_process(delta: float) -> void:
 #	if position.x < end_pos.x:
 #		has_passed = true
 	
-	if Global.current_song_position > landing_time + Global.quarter_length:
+	if Global.current_song_position > landing_time + duration + Global.quarter_length:
 		_die()
 		
 
+# distance = speed / time, therefore I need the beat speed in order to calculate note trail lengths
 
 # destroys input note
 func _die():

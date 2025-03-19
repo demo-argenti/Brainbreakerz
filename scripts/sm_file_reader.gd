@@ -1,4 +1,7 @@
+class_name SM_Reader
 extends Node
+
+
 
 @export var filename : String
 
@@ -16,8 +19,7 @@ var charts : Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	set_file()
-	read_file()
+	pass
 
 func set_file():
 	file = FileAccess.open(filename, FileAccess.READ)
@@ -64,12 +66,14 @@ func read_file():
 				if is_searching_for_bpms:
 					#if we found a "=", store data as a bpm
 					if char == "=":
-						bpm_holder = string_holder.to_float()
+						beat_holder = string_holder.to_float()
 						string_holder = ""
 					#if we found a "," or a ";", store data as a beat
 					elif char == "," or char == ";":
-						beat_holder = string_holder.to_float()
+						bpm_holder = string_holder.to_float()
 						bpms.push_back({"bpm" : bpm_holder, "beat" : beat_holder})
+					else:
+						string_holder += char
 				else: 
 					# don't add ";" to string_holder
 					if char != ";":
@@ -97,32 +101,32 @@ func read_file():
 				# once ";" is reached at the end of a line, we're at the end of a varaible value, and it's time
 				# to store that data in a varaible. This match case statement puts it in the right variable
 				if char == ";" and i == line.length()-1:
-						match var_name:
-							"#TITLE:":
-								title = string_holder
-							"#SUBTITLE:":
-								subtitle = string_holder
-							"#ARTIST:":
-								artist = string_holder
-							"#MUSIC:":
-								song_file = string_holder
-							"#SAMPLESTART:":
-								sample_start = string_holder.to_float()
-							"#SAMPLELENGTH:":
-								sample_length = string_holder.to_float()
-							"#OFFSET:":
-								offset = string_holder.to_float()
+					is_searching_for_bpms = false
+					match var_name:
+						"#TITLE:":
+							title = string_holder
+						"#SUBTITLE:":
+							subtitle = string_holder
+						"#ARTIST:":
+							artist = string_holder
+						"#MUSIC:":
+							song_file = string_holder
+						"#SAMPLESTART:":
+							sample_start = string_holder.to_float()
+						"#SAMPLELENGTH:":
+							sample_length = string_holder.to_float()
+						"#OFFSET:":
+							offset = string_holder.to_float()
 		else:
 			if line.begins_with("//"):
 				continue
 				
 			if current_line < 5:
-				line.dedent()
+				line = line.dedent()
 				if _is_challenge_level(line):
 					line.erase(line.find(":"))
 					chart_name_holder = line
-					
-					current_line += 1
+				current_line += 1
 			else:
 				if !line.begins_with(",") and !line.begins_with(";"):
 					bar_holder += line
@@ -180,7 +184,7 @@ func _parse_note_inputs(chart_name : String, notes_holder : Array):
 				3:
 					current_track = track_3
 			
-			match bar[i]:
+			match bar[i].to_int():
 				0:
 					continue
 				1:
