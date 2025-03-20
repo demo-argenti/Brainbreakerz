@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm5uksywpf4d4"
-path="res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"
+uid="uid://d4mbbhuhradqi"
+path="res://.godot/imported/icon.svg-eedb484fa5e4b307bee6b52e59d44ddd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://icon.svg"
-dest_files=["res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex"]
+source_file="res://Song Charts/ANIM_CrashPlay/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-eedb484fa5e4b307bee6b52e59d44ddd.ctex"]
 
 [params]
 
