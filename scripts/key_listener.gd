@@ -25,8 +25,9 @@ func _physics_process(delta: float) -> void:
 	if input_queue.size() > 0:
 		if is_instance_valid(input_queue.front()):
 			if Global.current_song_position > input_queue.front().landing_time + 0.4:
-				input_queue.pop_front()
-				$AnimationPlayer.play("miss_fade")
+				if not input_queue.front().is_hit and not input_queue.is_empty():
+					input_queue.pop_front()
+					$AnimationPlayer.play("miss_fade")
 			
 			if Input.is_action_just_pressed(lane_name):		
 				var hit = input_queue.front().calculate_hit(Global.current_song_position)
@@ -43,13 +44,33 @@ func _physics_process(delta: float) -> void:
 						$AnimationPlayer.play("good_fade")
 						# print ("Good!")
 					Global.increment_score.emit(hit)	
+			elif Input.is_action_pressed(lane_name):
+				if not input_queue.is_empty():
+					if input_queue.front().is_held_note and input_queue.front().is_in_duration():
+						pass
+			elif Input.is_action_just_released(lane_name):
+				# print("released:" + str(Global.current_song_position))
+				if not input_queue.is_empty():
+					if input_queue.front().is_held_note and Global.current_song_position > input_queue.front().landing_time + Global.quarter_length:
+						var hit = input_queue.front().calculate_release(Global.current_song_position)
+						input_queue.pop_front()._die()
+						if hit == 0:
+							$AnimationPlayer.play("miss_fade")
+						if hit == Global.PERFECT:
+							$AnimationPlayer.play("perfect_fade")
+						if hit == Global.GREAT:
+							$AnimationPlayer.play("great_fade")
+						if hit == Global.GOOD:
+							$AnimationPlayer.play("good_fade")
 				
+
 		
 		
 		
 func _on_song_time_emmitted(current_song_time):
-	if !input_chart.is_empty() and current_song_time + Global.quarter_length * 4 > input_chart.front().landing_beat * Global.quarter_length:
-		spawn_input(input_chart.pop_front())
+	if !input_chart.is_empty():
+		if current_song_time + Global.quarter_length * 4 > input_chart.front().landing_beat * Global.quarter_length:
+			spawn_input(input_chart.pop_front())
 
 # returns an enum corresponding with the sprite arrow
 func get_lane_sprite():

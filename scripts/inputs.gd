@@ -26,6 +26,9 @@ var lane_name : String
 
 var has_passed : bool
 
+# true if note hit successfully
+var is_hit : bool
+
 var initial_position : Vector2
 
 # handles held notes
@@ -61,7 +64,9 @@ func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String,
 	self.duration = duration
 	
 	if is_held_note:
-		$Tail.points[1].x = beat_distance * duration
+		$Tail.points[1].x = beat_distance * (duration)
+		
+	is_hit = false
 	
 	lane_name = lane
 	
@@ -71,12 +76,31 @@ func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String,
 
 func calculate_hit(hit_time) -> int:
 	if _within_range(hit_time, landing_time, PERFECT_RANGE):
+		is_hit = true
 		return Global.PERFECT
 	elif _within_range(hit_time, landing_time, GREAT_RANGE):
+		is_hit = true
 		return Global.GREAT
 	elif _within_range(hit_time, landing_time, GOOD_RANGE):
+		is_hit = true
 		return Global.GOOD
 	return NOT_HIT
+	
+	
+func calculate_release(hit_time) -> int:
+	if _within_range(hit_time, landing_time + (duration * Global.quarter_length), PERFECT_RANGE):
+		is_hit = true
+		return Global.PERFECT
+	elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GREAT_RANGE):
+		is_hit = true
+		return Global.GREAT
+	elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GOOD_RANGE):
+		is_hit = true
+		return Global.GOOD
+	return NOT_HIT
+	
+func is_in_duration() -> bool:
+	return Global.current_song_position < landing_time + (duration * Global.quarter_length) and Global.current_song_position > landing_time
 	
 # evaluates whether a given value is within plus or minus a range of a given target value
 func _within_range(value, target, range):
@@ -84,11 +108,19 @@ func _within_range(value, target, range):
 		return true
 	return false
 
+func get_ending_time():
+	if is_held_note:
+		return landing_time + duration * Global.quarter_length
+	else:
+		return landing_time
+
+
 #calculates the actual distance the note needs to travel to hit the target on time while traveling off screen
 func _calculate_actual_distance():
 	actual_distance = (distance_to_travel/beat_speed) * (beat_speed+1)
 	_actual_end_pos.x = position.x - actual_distance
 	_actual_end_pos.y = position.y
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -97,9 +129,15 @@ func _physics_process(delta: float) -> void:
 #	if position.x < end_pos.x:
 #		has_passed = true
 	
-	if Global.current_song_position > landing_time + duration + Global.quarter_length:
+	if Global.current_song_position > landing_time + (duration * Global.quarter_length) + Global.quarter_length:
+		if is_held_note:
+			pass
 		_die()
 		
+
+func held_note_score():
+	pass
+
 
 # distance = speed / time, therefore I need the beat speed in order to calculate note trail lengths
 
