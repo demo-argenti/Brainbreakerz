@@ -90,15 +90,14 @@ func calculate_hit(hit_time) -> int:
 	
 	
 func calculate_release(hit_time) -> int:
-	if _within_range(hit_time, landing_time + (duration * Global.quarter_length), PERFECT_RANGE):
-		is_hit = true
-		return Global.PERFECT
-	elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GREAT_RANGE):
-		is_hit = true
-		return Global.GREAT
-	elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GOOD_RANGE):
-		is_hit = true
-		return Global.GOOD
+	if is_hit:
+		if _within_range(hit_time, landing_time + (duration * Global.quarter_length), PERFECT_RANGE):
+			return Global.PERFECT
+		elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GREAT_RANGE):
+			return Global.GREAT
+		elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GOOD_RANGE):
+			return Global.GOOD
+		return NOT_HIT
 	return NOT_HIT
 	
 func is_in_duration() -> bool:
@@ -139,7 +138,7 @@ func _physics_process(delta: float) -> void:
 		
 func held_note_check():
 	var time = Global.current_song_position
-	if time > landing_time and time < get_ending_time():
+	if time > landing_time and time < get_ending_time() and is_hit:
 		if time > held_time_tick:
 			held_time_tick += Global.quarter_length/2
 			return true
