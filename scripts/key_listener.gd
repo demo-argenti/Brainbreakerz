@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 			elif Input.is_action_pressed(lane_name):
 				if not input_queue.is_empty():
 					if input_queue.front().is_held_note and input_queue.front().is_in_duration():
-						pass
+						if input_queue.front().held_note_check():
+							Global.increment_score.emit(4)
 			elif Input.is_action_just_released(lane_name):
 				# print("released:" + str(Global.current_song_position))
 				if not input_queue.is_empty():
@@ -62,6 +63,7 @@ func _physics_process(delta: float) -> void:
 							$AnimationPlayer.play("great_fade")
 						if hit == Global.GOOD:
 							$AnimationPlayer.play("good_fade")
+						Global.increment_score.emit(hit)
 				
 
 		

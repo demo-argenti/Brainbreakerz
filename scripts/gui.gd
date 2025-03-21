@@ -18,3 +18,5 @@ func _on_increment_score(precision):
 		score += 200
 	elif precision == 3:
 		score += 100
+	elif precision == 4:
+		score += 50

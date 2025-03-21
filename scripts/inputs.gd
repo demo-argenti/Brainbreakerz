@@ -34,6 +34,7 @@ var initial_position : Vector2
 # handles held notes
 var is_held_note : bool
 var duration : float
+var held_time_tick : float
 
 const PERFECT_RANGE = 0.025
 const GREAT_RANGE = 0.04
@@ -65,6 +66,7 @@ func setup(spawner_pos: Vector2, beat_speed_duration, lane_sprite, lane: String,
 	
 	if is_held_note:
 		$Tail.points[1].x = beat_distance * (duration)
+		held_time_tick = landing_time + Global.quarter_length / 2
 		
 	is_hit = false
 	
@@ -134,9 +136,14 @@ func _physics_process(delta: float) -> void:
 			pass
 		_die()
 		
-
-func held_note_score():
-	pass
+		
+func held_note_check():
+	var time = Global.current_song_position
+	if time > landing_time and time < get_ending_time():
+		if time > held_time_tick:
+			held_time_tick += Global.quarter_length/2
+			return true
+	return false
 
 
 # distance = speed / time, therefore I need the beat speed in order to calculate note trail lengths
