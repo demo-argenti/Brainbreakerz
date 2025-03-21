@@ -97,6 +97,7 @@ func calculate_release(hit_time) -> int:
 			return Global.GREAT
 		elif _within_range(hit_time, landing_time + (duration * Global.quarter_length), GOOD_RANGE):
 			return Global.GOOD
+		is_hit = false
 		return NOT_HIT
 	return NOT_HIT
 	
