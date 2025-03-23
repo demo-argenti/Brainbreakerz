@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://1bxr4nqgrfrb"]
+[gd_scene load_steps=0 format=3 uid="uid://1bxr4nqgrfrb"]
 
 [node name="loss_screen" type="Node2D"]
 

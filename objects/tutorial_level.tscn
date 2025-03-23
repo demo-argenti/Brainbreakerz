@@ -141,61 +141,6 @@
 [ext_resource type="Texture2D" uid="uid://bu27lbfig2t8v" path="res://Animations/ANIM_GPerfect/ANIM_GPerfect0015.png" id="123_qn3ft"]
 [ext_resource type="Texture2D" uid="uid://dlavm62nxrd75" path="res://Animations/ANIM_GPerfect/ANIM_GPerfect0016.png" id="124_u3qt3"]
 
-[sub_resource type="GDScript" id="GDScript_ihstp"]
-resource_name = "res://objects/tutorial_level.gd"
-script/source = "extends Node2D
-
-
-@onready var Spykez = $Spykez
-@onready var Crash = $Crash
-@onready var Grem = $Grem
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	
-	# making the models do their animations and be able to change their animations based on their condition
-	Spykez.play(\"Play\")
-	$KeyListener.connect(\"PerfectHit\", SpykezPerfect)
-	$KeyListener.connect(\"MissHit\", SpykezMiss)
-	$Spykez.connect(\"animation_finished\", SpykezDone )
-	
-	Crash.play(\"Play\")
-	$KeyListener2.connect(\"PerfectHit\", CrashPerfect)
-	$KeyListener2.connect(\"MissHit\", CrashMiss)
-	$Crash.connect(\"animation_finished\", CrashDone )
-	
-	Grem.play(\"Play\")
-	$KeyListener3.connect(\"PerfectHit\", GremPerfect)
-	$KeyListener3.connect(\"MissHit\", GremMiss)
-	$Grem.connect(\"animation_finished\", GremDone )
-
-# Make them play their correct animation
-func SpykezPerfect() -> void:
-	Spykez.play(\"Perfect\")
-func SpykezMiss() -> void:
-	Spykez.play(\"Miss\")
-func SpykezDone() -> void:
-	Spykez.play(\"Play\")
-
-func CrashPerfect() -> void:
-	Crash.play(\"Perfect\")
-func CrashMiss() -> void:
-	Crash.play(\"Miss\")
-func CrashDone() -> void:
-	Crash.play(\"Play\")
-
-func GremPerfect() -> void:
-	Grem.play(\"Perfect\")
-func GremMiss() -> void:
-	Grem.play(\"Miss\")
-func GremDone() -> void:
-	Grem.play(\"Play\")
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-"
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{
 "frames": [{
@@ -655,7 +600,6 @@ animations = [{
 [node name="TutorialLevel" type="Node2D"]
 script = ExtResource("1_8xf1l")
 
-
 [node name="KeyListener" parent="." instance=ExtResource("1_ywn4t")]
 z_index = 1
 position = Vector2(64, 192)
@@ -681,8 +625,8 @@ chart_name = "res://Song Charts/Warmin' Up.sm"
 
 [node name="GUI" parent="." instance=ExtResource("4_ff2rx")]
 
-
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(431, 324)
 scale = Vector2(0.598944, 0.601677)
 texture = ExtResource("5_8xf1l")

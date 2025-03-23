@@ -32,8 +32,7 @@ func _physics_process(delta: float) -> void:
 				if not input_queue.front().is_hit and not input_queue.is_empty():
 					input_queue.pop_front()
 					$AnimationPlayer.play("miss_fade")
-					Global.lose_life.emit()
-          emit_signal("MissHit")
+					emit_signal("MissHit")
 			
 			if Input.is_action_just_pressed(lane_name):		
 				var hit = input_queue.front().calculate_hit(Global.current_song_position)
