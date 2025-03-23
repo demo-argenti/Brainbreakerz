@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://2qa6nn35lhp1"]
+[gd_scene load_steps=6 format=3 uid="uid://2qa6nn35lhp1"]
 
+[ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_8xf1l"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="1_ywn4t"]
 [ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor.tscn" id="2_kktrg"]
 [ext_resource type="AudioStream" uid="uid://dupfi00b1su37" path="res://sounds/music/MUS_MVPLoop.mp3" id="3_841rs"]
 [ext_resource type="PackedScene" uid="uid://clim1iox8cjuw" path="res://objects/gui.tscn" id="4_ff2rx"]
 
 [node name="TutorialLevel" type="Node2D"]
+script = ExtResource("1_8xf1l")
 
 [node name="KeyListener" parent="." instance=ExtResource("1_ywn4t")]
 position = Vector2(64, 192)
@@ -28,3 +30,5 @@ stream = ExtResource("3_841rs")
 chart_name = "res://Song Charts/Warmin' Up.sm"
 
 [node name="GUI" parent="." instance=ExtResource("4_ff2rx")]
+
+[connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]

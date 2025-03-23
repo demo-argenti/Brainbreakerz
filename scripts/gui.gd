@@ -11,24 +11,24 @@ func _ready() -> void:
 	Global.increment_score.connect(_on_increment_score)
 	Global.increment_life.connect(_on_increment_life)
 	Global.lose_life.connect(_on_lose_life)
-	score = 0
-	lives = 5
+	Global.level_score = 0
+	Global.level_lives = 5
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	$CanvasLayer/ScoreLabel.text = str(score) + " pts"
-	$CanvasLayer/LivesLabel.text = str(lives) + " lives"
+	$CanvasLayer/ScoreLabel.text = str(Global.level_score) + " pts"
+	$CanvasLayer/LivesLabel.text = str(Global.level_lives) + " lives"
 
 func _on_increment_score(precision):
 	if precision == 1:
-		score += 300
+		Global.level_score += 300
 	elif precision == 2:
-		score += 200
+		Global.level_score += 200
 	elif precision == 3:
-		score += 100
+		Global.level_score += 100
 	elif precision == 4:
-		score += 50
+		Global.level_score += 50
 	update_thousands()
 
 
@@ -40,15 +40,17 @@ func _on_lose_life():
 
 
 func gain_life():
-	lives += 1
+	Global.level_lives += 1
 
 func lose_life():
-	lives -= 1
+	Global.level_lives -= 1
+	if Global.level_lives == 0:
+		Global.out_of_lives.emit()
 
 
 func update_thousands():
-	if score / 10000 > thousands:
+	if Global.level_score / 10000 > thousands:
 		gain_life()
 		thousands += 1
-	elif score / 10000 < thousands:
+	elif Global.level_score / 10000 < thousands:
 		thousands -= 1

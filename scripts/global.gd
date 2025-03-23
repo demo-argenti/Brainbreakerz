@@ -7,6 +7,7 @@ signal song_time(input)
 signal measure(input)
 signal delta_pos(input)
 signal note_chart_received()
+signal out_of_lives()
 
 # score signal
 signal increment_score(precision)
@@ -26,6 +27,9 @@ var current_song_delta : float
 var quarter_length : float
 
 var current_song_length : float
+
+var level_score : int
+var level_lives : int
 
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
