@@ -1,5 +1,5 @@
 extends Sprite2D
-
+# this is keylistener 1
 @onready var input = preload("res://objects/inputs.tscn")
 @export var lane_name: String = ""
 
@@ -10,6 +10,10 @@ enum {UPPER_LANE = 4, MIDDLE_LANE = 6, LOWER_LANE = 7}
 var input_chart : Array
 
 var input_queue : Array = [];
+
+signal PerfectHit
+
+signal MissHit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,6 +33,7 @@ func _physics_process(delta: float) -> void:
 					input_queue.pop_front()
 					$AnimationPlayer.play("miss_fade")
 					Global.lose_life.emit()
+          emit_signal("MissHit")
 			
 			if Input.is_action_just_pressed(lane_name):		
 				var hit = input_queue.front().calculate_hit(Global.current_song_position)
@@ -38,6 +43,7 @@ func _physics_process(delta: float) -> void:
 					if hit == Global.PERFECT:
 						# print ("Perfect!")
 						$AnimationPlayer.play("perfect_fade")
+						emit_signal("PerfectHit")
 					if hit == Global.GREAT:
 						$AnimationPlayer.play("great_fade")
 						# print ("Great!")
