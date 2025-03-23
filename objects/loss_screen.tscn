@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://1bxr4nqgrfrb"]
+
+[node name="loss_screen" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control/CanvasLayer"]
+anchors_preset = -1
+anchor_left = 0.318
+anchor_top = 0.184
+anchor_right = 0.655
+anchor_bottom = 0.318
+offset_left = -0.336029
+offset_top = -0.23201
+offset_right = -0.560059
+offset_bottom = -0.0640106
+theme_override_font_sizes/normal_font_size = 30
+text = "YOU LOSE"
+horizontal_alignment = 1
+vertical_alignment = 1
