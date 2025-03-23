@@ -11,6 +11,10 @@ signal note_chart_received()
 # score signal
 signal increment_score(precision)
 
+# life system
+signal increment_life()
+signal lose_life()
+
 var note_chart
 
 var current_song_position : float
