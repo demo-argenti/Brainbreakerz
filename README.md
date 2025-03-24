@@ -3,7 +3,9 @@ Spring 2025 Game Project
  
 *Production, Music, Level Design:* Bailey Miller
 
-*Programming:* Daniel Berry
+*Programming Lead:* Daniel Berry
+
+*Graphics Programming:* Anthony Ardolina
 
 *Art:* Ali Trent
 
