@@ -2,18 +2,18 @@
 
 [ext_resource type="Script" uid="uid://dcv0f4aq8pobw" path="res://scripts/victory_screen.gd" id="1_d4lgv"]
 
-[node name="Victory Screen" type="Node2D"]
+[node name="Victory Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_d4lgv")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
-
-[node name="Victory" type="RichTextLabel" parent="Control/CanvasLayer"]
+[node name="Victory" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.327
 anchor_top = 0.144
@@ -28,7 +28,7 @@ text = "VICTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="RichTextLabel" parent="Control/CanvasLayer"]
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.394
 anchor_top = 0.358
@@ -38,3 +38,20 @@ offset_left = 0.111969
 offset_top = 0.0159912
 offset_right = 0.391968
 offset_bottom = 0.0159912
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -201.0
+offset_right = 127.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main Menu"
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
