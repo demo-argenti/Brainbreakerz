@@ -9,7 +9,7 @@ Spring 2025 Game Project
 
 *Art:* Ali Trent
 
-![image](https://github.com/user-attachments/assets/c33536e8-f91c-44b0-a719-d3e60903c661)
+![Brainbreakerz Alpha](https://github.com/user-attachments/assets/0f8085a7-9194-484f-8d82-716c6c3ae44a)
 
 ## About
 Brainbreakerz is a rhythm game inspired by *Friday Night Funkin'* and *Scott Pilgrim vs. The World*. It is currently a work in progress. 

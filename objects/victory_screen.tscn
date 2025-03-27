@@ -1,19 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://rq8mxy5brgka"]
+[gd_scene load_steps=6 format=3 uid="uid://rq8mxy5brgka"]
 
 [ext_resource type="Script" uid="uid://dcv0f4aq8pobw" path="res://scripts/victory_screen.gd" id="1_d4lgv"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="2_me5jy"]
+[ext_resource type="Texture2D" uid="uid://ja0jkruq281y" path="res://BG_Victory.png" id="3_gjw2g"]
+[ext_resource type="AudioStream" uid="uid://c0rnlwonfg4wo" path="res://sounds/music/MUS_VictoryStart.mp3" id="4_gjw2g"]
+[ext_resource type="AudioStream" uid="uid://d25psfl8f0a4e" path="res://sounds/music/MUS_VictoryLoop.mp3" id="5_3mms0"]
 
-[node name="Victory Screen" type="Node2D"]
+[node name="Victory Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_d4lgv")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
-
-[node name="Victory" type="RichTextLabel" parent="Control/CanvasLayer"]
+[node name="Victory" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.327
 anchor_top = 0.144
@@ -28,7 +32,7 @@ text = "VICTORY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score" type="RichTextLabel" parent="Control/CanvasLayer"]
+[node name="Score" type="RichTextLabel" parent="CanvasLayer"]
 anchors_preset = -1
 anchor_left = 0.394
 anchor_top = 0.358
@@ -38,3 +42,38 @@ offset_left = 0.111969
 offset_top = 0.0159912
 offset_right = 0.391968
 offset_bottom = 0.0159912
+
+[node name="MainMenu" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -201.0
+offset_right = 127.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Main Menu"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(577.5, 325)
+scale = Vector2(0.601563, 0.6)
+texture = ExtResource("2_me5jy")
+
+[node name="BG_Art" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(577, 324.5)
+scale = Vector2(0.598958, 0.597222)
+texture = ExtResource("3_gjw2g")
+
+[node name="Start" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_gjw2g")
+
+[node name="Loop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_3mms0")
+
+[connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]

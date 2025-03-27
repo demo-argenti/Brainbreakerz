@@ -1,26 +1,77 @@
-[gd_scene format=3 uid="uid://1bxr4nqgrfrb"]
+[gd_scene load_steps=6 format=3 uid="uid://1bxr4nqgrfrb"]
 
-[node name="loss_screen" type="Node2D"]
+[ext_resource type="Script" uid="uid://bhsciu1eer3g" path="res://objects/loss_screen.gd" id="1_po4is"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="2_hm56g"]
+[ext_resource type="Texture2D" uid="uid://dpfrr5u12erj4" path="res://BG_GameOver.png" id="3_edw34"]
+[ext_resource type="AudioStream" uid="uid://dmoi4pw5dqbid" path="res://sounds/music/MUS_FailureStart.mp3" id="4_gb43a"]
+[ext_resource type="AudioStream" uid="uid://cwiyq4qqynr2j" path="res://sounds/music/MUS_FailureLoop.mp3" id="5_8xmm4"]
 
-[node name="Control" type="Control" parent="."]
+[node name="loss_screen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("1_po4is")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Control"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Control/CanvasLayer"]
-anchors_preset = -1
-anchor_left = 0.318
-anchor_top = 0.184
-anchor_right = 0.655
-anchor_bottom = 0.318
-offset_left = -0.336029
-offset_top = -0.23201
-offset_right = -0.560059
-offset_bottom = -0.0640106
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -198.0
+offset_right = 199.0
+offset_bottom = 71.0
+grow_horizontal = 2
 theme_override_font_sizes/normal_font_size = 30
 text = "YOU LOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.5
+offset_top = -59.0
+offset_right = 175.5
+offset_bottom = 59.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="Retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Try Again"
+
+[node name="MainMenu" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Main Menu"
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(577, 324.5)
+scale = Vector2(0.6, 0.599074)
+texture = ExtResource("2_hm56g")
+
+[node name="BG_Art" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(576, 325.5)
+scale = Vector2(0.598958, 0.600926)
+texture = ExtResource("3_edw34")
+
+[node name="Start" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gb43a")
+
+[node name="Loop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_8xmm4")
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

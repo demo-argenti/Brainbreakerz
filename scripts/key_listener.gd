@@ -28,7 +28,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if input_queue.size() > 0:
 		if is_instance_valid(input_queue.front()):
-			if Global.current_song_position > input_queue.front().landing_time + 0.4:
+			if Global.current_song_position > input_queue.front().landing_time + 0.1:
 				if not input_queue.front().is_hit and not input_queue.is_empty():
 					input_queue.pop_front()
 					$AnimationPlayer.play("miss_fade")

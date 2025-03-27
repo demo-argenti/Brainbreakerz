@@ -7,6 +7,8 @@ extends Node2D
 
 
 func _ready():
+	Global.current_level = get_tree().current_scene.scene_file_path
+	
 	Global.out_of_lives.connect(_on_out_of_lives)
 	
 	Spykez.play("Play")
@@ -51,4 +53,5 @@ func _on_conductor_finished():
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 
 func _on_out_of_lives():
+	
 	get_tree().change_scene_to_file("res://objects/loss_screen.tscn")

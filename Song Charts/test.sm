@@ -1,0 +1,49 @@
+#TITLE:test;
+#SUBTITLE:;
+#ARTIST:;
+#MUSIC:SFX_Splat.mp3;
+#BANNER:;
+#BACKGROUND:;
+#LYRICSPATH:;
+#CDTITLE:;
+#SAMPLESTART:0.000000;
+#SAMPLELENGTH:10.000000;
+#BPMS:0.000000=120.000000;
+#STOPS:;
+#TIMESIGNATURES:;
+#BGCHANGES:;
+#FGCHANGES:;
+#ATTACKS:;
+#SPEEDS:;
+#SCROLLS:;
+#KEYSOUNDS:;
+
+//---------------dance-single - ---------------
+#NOTES:
+     dance-single:
+     :
+     Beginner:
+     1:
+     0,0,0,0,0:
+// measure 0
+0000
+0000
+0000
+0000
+,  // measure 1
+1000
+0000
+0000
+0000
+,  // measure 2
+0010
+0000
+0001
+0000
+,  // measure 3
+0010
+0000
+0000
+0000
+;
+

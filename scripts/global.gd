@@ -31,6 +31,8 @@ var current_song_length : float
 var level_score : int
 var level_lives : int
 
+var current_level
+
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
 # Called when the node enters the scene tree for the first time.
