@@ -619,6 +619,7 @@ lane_name = "lower_lane"
 spawn_beat = 2
 
 [node name="Conductor" parent="." instance=ExtResource("2_kktrg")]
+chart_name = "res://Song Charts/Warmin' Up.sm"
 
 [node name="GUI" parent="." instance=ExtResource("4_ff2rx")]
 
