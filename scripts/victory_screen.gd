@@ -4,7 +4,7 @@ extends Control
 @onready var loop = $Loop
 
 func _ready():
-	#$Control/CanvasLayer/Score.text = str(Global.level_score) + " pts"
+	$CanvasLayer/Score.text = str(Global.level_score) + " pts"
 	start.play()
 
 func _process(delta):

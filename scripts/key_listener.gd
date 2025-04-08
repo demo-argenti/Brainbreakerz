@@ -29,43 +29,45 @@ func _physics_process(delta: float) -> void:
 	if input_queue.size() > 0:
 		if is_instance_valid(input_queue.front()):
 			if Global.current_song_position > input_queue.front().landing_time + 0.1:
-				if not input_queue.front().is_hit and not input_queue.is_empty():
+				if not input_queue.is_empty() and not input_queue.front().is_hit:
 					input_queue.pop_front()
 					$AnimationPlayer.play("miss_fade")
-					Global.lose_life.emit()
+					#Global.lose_life.emit()
 					emit_signal("MissHit")
+			if not input_queue.is_empty() and Global.current_song_position > input_queue.front().get_ending_time() + 0.1:
+				input_queue.pop_front()._die()
 			
 			if Input.is_action_just_pressed(lane_name):		
-				var hit = input_queue.front().calculate_hit(Global.current_song_position)
-				if hit > 0:
-					if not input_queue.front().is_held_note:
-						input_queue.pop_front()._die()
-					if hit == Global.PERFECT:
-						# print ("Perfect!")
-						$AnimationPlayer.play("perfect_fade")
-						emit_signal("PerfectHit")
-					if hit == Global.GREAT:
-						$AnimationPlayer.play("great_fade")
-						# print ("Great!")
-					if hit == Global.GOOD:
-						$AnimationPlayer.play("good_fade")
-						# print ("Good!")
-					Global.increment_score.emit(hit)	
-			elif Input.is_action_pressed(lane_name):
+				if not input_queue.is_empty():
+					var hit = input_queue.front().calculate_hit(Global.current_song_position)
+					if hit > 0:
+						if not input_queue.front().is_held_note:
+							input_queue.pop_front()._die()
+						if hit == Global.PERFECT:
+							# print ("Perfect!")
+							$AnimationPlayer.play("perfect_fade")
+							emit_signal("PerfectHit")
+						if hit == Global.GREAT:
+							$AnimationPlayer.play("great_fade")
+							# print ("Great!")
+						if hit == Global.GOOD:
+							$AnimationPlayer.play("good_fade")
+							# print ("Good!")
+						Global.increment_score.emit(hit)	
+			if Input.is_action_pressed(lane_name):
 				if not input_queue.is_empty():
 					if input_queue.front().is_held_note and input_queue.front().is_in_duration():
 						if input_queue.front().held_note_check():
 							Global.increment_score.emit(4)
-			elif Input.is_action_just_released(lane_name):
+			else:
+				if not input_queue.is_empty() and input_queue.front().is_held_note and input_queue.front().is_hit:
+					input_queue.pop_front()._die()
+			if Input.is_action_just_released(lane_name):
 				# print("released:" + str(Global.current_song_position))
 				if not input_queue.is_empty():
 					if input_queue.front().is_held_note and Global.current_song_position > input_queue.front().landing_time + Global.quarter_length:
 						var hit = input_queue.front().calculate_release(Global.current_song_position)
 						input_queue.pop_front()._die()
-						if hit == 0:
-							$AnimationPlayer.play("miss_fade")
-							emit_signal("MissHit")
-							Global.lose_life.emit()
 						if hit == Global.PERFECT:
 							$AnimationPlayer.play("perfect_fade")
 							emit_signal("PerfectHit")
@@ -74,7 +76,8 @@ func _physics_process(delta: float) -> void:
 						if hit == Global.GOOD:
 							$AnimationPlayer.play("good_fade")
 						Global.increment_score.emit(hit)
-				
+						# I think the problem lies in here somewhere. When I release the held notes immediately after hitting, it's a problem
+						# Try adding something to make it so released held notes get deleted in a clean up move
 
 		
 		
