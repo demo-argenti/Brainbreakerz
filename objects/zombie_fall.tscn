@@ -1,0 +1,114 @@
+[gd_scene load_steps=27 format=3 uid="uid://bdo12vbt8khn"]
+
+[ext_resource type="Texture2D" uid="uid://dnu7is8coxn8j" path="res://Animations/ANIM_ZFall/ANIM_ZFall0001.png" id="1_mtxhu"]
+[ext_resource type="Texture2D" uid="uid://cjsvmcsiyihfr" path="res://Animations/ANIM_ZFall/ANIM_ZFall0002.png" id="2_07lqm"]
+[ext_resource type="Texture2D" uid="uid://ko5tcmse01sn" path="res://Animations/ANIM_ZFall/ANIM_ZFall0003.png" id="3_kskfp"]
+[ext_resource type="Texture2D" uid="uid://dv3iuqgb0eylf" path="res://Animations/ANIM_ZFall/ANIM_ZFall0004.png" id="4_gaguu"]
+[ext_resource type="Texture2D" uid="uid://don45xpthqoor" path="res://Animations/ANIM_ZFall/ANIM_ZFall0005.png" id="5_c4qdt"]
+[ext_resource type="Texture2D" uid="uid://dfihikga3sush" path="res://Animations/ANIM_ZFall/ANIM_ZFall0006.png" id="6_pwcr5"]
+[ext_resource type="Texture2D" uid="uid://f62x45qfac6j" path="res://Animations/ANIM_ZFall/ANIM_ZFall0007.png" id="7_nlebk"]
+[ext_resource type="Texture2D" uid="uid://cmaaxsweus7w1" path="res://Animations/ANIM_ZFall/ANIM_ZFall0008.png" id="8_qskc7"]
+[ext_resource type="Texture2D" uid="uid://2l43esox6e5o" path="res://Animations/ANIM_ZFall/ANIM_ZFall0009.png" id="9_8445u"]
+[ext_resource type="Texture2D" uid="uid://d1ydtmgl3kd6s" path="res://Animations/ANIM_ZFall/ANIM_ZFall0010.png" id="10_aubd1"]
+[ext_resource type="Texture2D" uid="uid://dldteaff35ua6" path="res://Animations/ANIM_ZFall/ANIM_ZFall0011.png" id="11_o4ou4"]
+[ext_resource type="Texture2D" uid="uid://dk4fuotopw4e7" path="res://Animations/ANIM_ZFall/ANIM_ZFall0012.png" id="12_ashgg"]
+[ext_resource type="Texture2D" uid="uid://ig7lbe4pyris" path="res://Animations/ANIM_ZFall/ANIM_ZFall0013.png" id="13_5llxs"]
+[ext_resource type="Texture2D" uid="uid://brxkv67yfk5j1" path="res://Animations/ANIM_ZFall/ANIM_ZFall0014.png" id="14_k0ra0"]
+[ext_resource type="Texture2D" uid="uid://fp2vtsir2xme" path="res://Animations/ANIM_ZFall/ANIM_ZFall0015.png" id="15_5fu0i"]
+[ext_resource type="Texture2D" uid="uid://dfh64byeawees" path="res://Animations/ANIM_ZFall/ANIM_ZFall0016.png" id="16_nfa4l"]
+[ext_resource type="Texture2D" uid="uid://c6yrsc7qj7tjf" path="res://Animations/ANIM_ZFall/ANIM_ZFall0017.png" id="17_r0661"]
+[ext_resource type="Texture2D" uid="uid://7d8mow8vqpc" path="res://Animations/ANIM_ZFall/ANIM_ZFall0018.png" id="18_vr2rr"]
+[ext_resource type="Texture2D" uid="uid://bao2myg5oufjm" path="res://Animations/ANIM_ZFall/ANIM_ZFall0019.png" id="19_i52v3"]
+[ext_resource type="Texture2D" uid="uid://bfmlkoy4ms7gu" path="res://Animations/ANIM_ZFall/ANIM_ZFall0020.png" id="20_6m6ct"]
+[ext_resource type="Texture2D" uid="uid://el7i7o25kput" path="res://Animations/ANIM_ZFall/ANIM_ZFall0021.png" id="21_j4e86"]
+[ext_resource type="Texture2D" uid="uid://2i2ryhe8bx7" path="res://Animations/ANIM_ZFall/ANIM_ZFall0022.png" id="22_hb8eu"]
+[ext_resource type="Texture2D" uid="uid://b8qqt8716h0tv" path="res://Animations/ANIM_ZFall/ANIM_ZFall0023.png" id="23_kyh2n"]
+[ext_resource type="Texture2D" uid="uid://bjni5a5pnc1uh" path="res://Animations/ANIM_ZFall/ANIM_ZFall0024.png" id="24_4hjfr"]
+[ext_resource type="Script" uid="uid://cfljv101mqn2b" path="res://objects/zombie_fall.gd" id="25_u28fg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7el3w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mtxhu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_07lqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kskfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gaguu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_c4qdt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_pwcr5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nlebk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qskc7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_8445u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_aubd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_o4ou4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ashgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5llxs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_k0ra0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_5fu0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_nfa4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_r0661")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_vr2rr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_i52v3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_6m6ct")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_j4e86")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_hb8eu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_kyh2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_4hjfr")
+}],
+"loop": true,
+"name": &"Fall",
+"speed": 5.0
+}]
+
+[node name="ZombieFall" type="AnimatedSprite2D"]
+position = Vector2(36, 0)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_7el3w")
+animation = &"Fall"
+script = ExtResource("25_u28fg")

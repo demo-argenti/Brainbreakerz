@@ -15,6 +15,8 @@ signal PerfectHit
 
 signal MissHit
 
+signal Hit
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Global.song_time.connect(_on_song_time_emmitted)
@@ -47,12 +49,15 @@ func _physics_process(delta: float) -> void:
 							# print ("Perfect!")
 							$AnimationPlayer.play("perfect_fade")
 							emit_signal("PerfectHit")
+							emit_signal("Hit")
 						if hit == Global.GREAT:
 							$AnimationPlayer.play("great_fade")
 							# print ("Great!")
+							emit_signal("Hit")
 						if hit == Global.GOOD:
 							$AnimationPlayer.play("good_fade")
 							# print ("Good!")
+							emit_signal("Hit")
 						Global.increment_score.emit(hit)	
 			if Input.is_action_pressed(lane_name):
 				if not input_queue.is_empty():
