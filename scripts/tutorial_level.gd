@@ -6,6 +6,7 @@ extends Node2D
 
 var ZombieDie = preload("res://objects/zombie_die.tscn")
 var ZombieFall = preload("res://objects/zombie_fall.tscn")
+var ZombieDeath = preload("res://objects/zombie_death.tscn")
 
 func _ready():
 	Global.current_level = get_tree().current_scene.scene_file_path
@@ -15,10 +16,8 @@ func _ready():
 	$KeyListener.connect("Hit", SpykezZombieDie)
 	$KeyListener2.connect("Hit", CrashZombieDie)
 	$KeyListener3.connect("Hit", GremZombieDie)
+	ZombieDeath.connect("Done", Remove)
 	
-	ZombieFall.connect("DieDone", SpykezZombieFall)
-	ZombieFall.connect("DieDone", CrashZombieFall)
-	ZombieFall.connect("DieDone", GremZombieFall)
 	
 	Spykez.play("Play")
 	Crash.play("Play")
@@ -39,55 +38,51 @@ func _ready():
 
 func SpykezPerfect():
 	Spykez.play("Perfect")
+	$PerfectSplat.play()
 func SpykezMiss():
 	Spykez.play("Miss")
+	$MissScratch.play()
 func SpykezDone():
 	Spykez.play("Play")
 
 func CrashPerfect():
 	Crash.play("Perfect")
+	$PerfectSplat.play()
 func CrashMiss():
 	Crash.play("Miss")
+	$MissScratch.play()
 func CrashDone():
 	Crash.play("Play")
 	
 func GremPerfect():
 	Grem.play("Perfect")
+	$PerfectSplat.play()
 func GremMiss():
 	Grem.play("Miss")
+	$MissScratch.play()
 func GremDone():
 	Grem.play("Play")
 
 func SpykezZombieDie():
-	var instance = ZombieDie.instantiate()
+	var instance = ZombieDeath.instantiate()
 	add_child(instance)
-	instance.position = Vector2(30, 155)
-	
-
-func SpykezZombieFall():
-	var instance = ZombieFall.instantiate()
-	add_child(instance)
-	instance.position = Vector2(30, 155)
+	instance.position = Vector2(50, 230)
+	$HitSplat.play()
 
 func CrashZombieDie():
-	var instance = ZombieDie.instantiate()
+	var instance = ZombieDeath.instantiate()
 	add_child(instance)
-	instance.position = Vector2(30, 322)
-
-func CrashZombieFall():
-	var instance = ZombieFall.instantiate()
-	add_child(instance)
-	instance.position = Vector2(30, 322)
+	instance.position = Vector2(50, 360)
+	$HitSplat.play()
 
 func GremZombieDie():
-	var instance = ZombieDie.instantiate()
+	var instance = ZombieDeath.instantiate()
 	add_child(instance)
-	instance.position = Vector2(30, 454)	
+	instance.position = Vector2(50, 490)
+	$HitSplat.play()
 
-func GremZombieFall():
-	var instance = ZombieFall.instantiate()
-	add_child(instance)
-	instance.position = Vector2(30, 454)
+func Remove():
+	ZombieDeath.queue_free()
 
 func _on_conductor_finished():
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")

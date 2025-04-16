@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://dejg3ie3c0450"]
+
+[ext_resource type="Script" uid="uid://dlng8kci3c317" path="res://objects/Song_Select.gd" id="1_60u22"]
+[ext_resource type="Theme" uid="uid://kidl1abmq23t" path="res://ButtonTexture.tres" id="2_tugur"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="3_i86hn"]
+[ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="4_5loct"]
+[ext_resource type="Texture2D" uid="uid://bp4dldato0po7" path="res://backbutton.png" id="5_7jc25"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uagdt"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_60u22")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+layout_mode = 0
+offset_left = 445.0
+offset_top = 133.0
+offset_right = 945.0
+offset_bottom = 633.0
+scale = Vector2(0.644231, 0.938746)
+follow_focus = true
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("2_tugur")
+
+[node name="Bg" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(577.5, 323)
+scale = Vector2(0.598437, 0.596296)
+texture = ExtResource("3_i86hn")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5loct")
+
+[node name="BackButton" type="Button" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_uagdt")
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 857.0
+offset_top = 69.0
+offset_right = 2083.0
+offset_bottom = 989.0
+scale = Vector2(0.0960232, 0.0913065)
+icon = ExtResource("5_7jc25")
+flat = true
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
