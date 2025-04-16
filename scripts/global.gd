@@ -32,6 +32,8 @@ var level_score : int
 var level_lives : int
 
 var current_level
+var is_high_score = false
+var high_score : int
 
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
