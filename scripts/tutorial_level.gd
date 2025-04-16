@@ -40,6 +40,8 @@ func _ready():
 	
 	$KeyListener3.connect("PerfectHit", GremPerfect)
 	$KeyListener3.connect("MissHit", GremMiss)
+	
+	$Transition.fade_in()
 
 func SpykezPerfect():
 	Spykez.play("Perfect")
@@ -94,6 +96,7 @@ func _on_conductor_finished():
 		Global.is_high_score = true
 		SaveLoad.save_current_level_high_score(level, Global.level_score)
 	Global.high_score = SaveLoad.get_current_level_high_score(level)
+	$Transition.fade_out()
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 
 func _on_out_of_lives():

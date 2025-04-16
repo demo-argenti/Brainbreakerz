@@ -1,16 +1,19 @@
-extends Node2D
+extends AnimatedSprite2D
+
+func _ready():
+	visible = false
 
 func transition(scene : String):
-	$AnimatedSprite2D.play()
+	play()
 	get_tree().change_scene_to_file(scene)
-	$AnimatedSprite2D.play_backwards()
+	play_backwards()
 
-func fade_in():
-	visible = true
-	$AnimatedSprite2D.play()
-	
-	
 func fade_out():
 	visible = true
-	$AnimatedSprite2D.play_backwards()
+	play()
+	
+	
+func fade_in():
+	visible = true
+	play_backwards()
 	visible = false

@@ -34,10 +34,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="Transition" type="Node2D"]
-script = ExtResource("1_00tjl")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Transition" type="AnimatedSprite2D"]
 scale = Vector2(0.625, 0.625)
 sprite_frames = SubResource("SpriteFrames_6g0kx")
 centered = false
+script = ExtResource("1_00tjl")

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgh0debrlwcy2"]
+[gd_scene load_steps=6 format=3 uid="uid://cgh0debrlwcy2"]
 
 [ext_resource type="Script" uid="uid://dum2jinj0efs2" path="res://scripts/main_menu.gd" id="1_m625n"]
-[ext_resource type="Theme" uid="uid://kidl1abmq23t" path="res://ButtonTexture.tres" id="2_dnha3"]
+[ext_resource type="Theme" uid="uid://duvviehoow83i" path="res://ButtonTexture.tres" id="2_dnha3"]
 [ext_resource type="Texture2D" uid="uid://dfpmxsjtuugsg" path="res://Title_Screen.png" id="2_wugcc"]
 [ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="3_gtid3"]
+[ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="5_66ak0"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -55,6 +56,8 @@ texture = ExtResource("2_wugcc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gtid3")
+
+[node name="Transition" parent="." instance=ExtResource("5_66ak0")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial_Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Song_Select_Button" to="." method="_on_play_demo_button_pressed"]

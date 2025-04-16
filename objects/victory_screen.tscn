@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://rq8mxy5brgka"]
+[gd_scene load_steps=7 format=3 uid="uid://rq8mxy5brgka"]
 
 [ext_resource type="Script" uid="uid://dcv0f4aq8pobw" path="res://scripts/victory_screen.gd" id="1_d4lgv"]
 [ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="2_me5jy"]
 [ext_resource type="Texture2D" uid="uid://ja0jkruq281y" path="res://BG_Victory.png" id="3_gjw2g"]
 [ext_resource type="AudioStream" uid="uid://c0rnlwonfg4wo" path="res://sounds/music/MUS_VictoryStart.mp3" id="4_gjw2g"]
 [ext_resource type="AudioStream" uid="uid://d25psfl8f0a4e" path="res://sounds/music/MUS_VictoryLoop.mp3" id="5_3mms0"]
+[ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="6_766ou"]
 
 [node name="Victory Screen" type="Control"]
 layout_mode = 3
@@ -86,5 +87,7 @@ stream = ExtResource("4_gjw2g")
 
 [node name="Loop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_3mms0")
+
+[node name="Transition" parent="." instance=ExtResource("6_766ou")]
 
 [connection signal="pressed" from="MainMenu" to="." method="_on_main_menu_pressed"]
