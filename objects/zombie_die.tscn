@@ -1,0 +1,81 @@
+[gd_scene load_steps=19 format=3 uid="uid://byqcop6hcv8ja"]
+
+[ext_resource type="Texture2D" uid="uid://bbmds7jmcutko" path="res://Animations/ANIM_ZDie/ANIM_ZDie0001.png" id="1_aofeb"]
+[ext_resource type="Texture2D" uid="uid://bjxcm5bnt2s0o" path="res://Animations/ANIM_ZDie/ANIM_ZDie0002.png" id="2_8op8m"]
+[ext_resource type="Texture2D" uid="uid://gqrq8q16wgv5" path="res://Animations/ANIM_ZDie/ANIM_ZDie0003.png" id="3_qllco"]
+[ext_resource type="Texture2D" uid="uid://bi256k5p8lfrf" path="res://Animations/ANIM_ZDie/ANIM_ZDie0004.png" id="4_g6yhf"]
+[ext_resource type="Texture2D" uid="uid://c5ba26leg5fi3" path="res://Animations/ANIM_ZDie/ANIM_ZDie0005.png" id="5_tyaxp"]
+[ext_resource type="Texture2D" uid="uid://b2ch3bxr2xfrx" path="res://Animations/ANIM_ZDie/ANIM_ZDie0006.png" id="6_yr44o"]
+[ext_resource type="Texture2D" uid="uid://dyvuhi1ibc4q7" path="res://Animations/ANIM_ZDie/ANIM_ZDie0007.png" id="7_y3b8v"]
+[ext_resource type="Texture2D" uid="uid://8erjlysjgbdp" path="res://Animations/ANIM_ZDie/ANIM_ZDie0008.png" id="8_y2cs8"]
+[ext_resource type="Texture2D" uid="uid://dv8y4aaidxg4s" path="res://Animations/ANIM_ZDie/ANIM_ZDie0009.png" id="9_ycvpl"]
+[ext_resource type="Texture2D" uid="uid://c66ahwnen0nhj" path="res://Animations/ANIM_ZDie/ANIM_ZDie0010.png" id="10_v6f50"]
+[ext_resource type="Texture2D" uid="uid://dfuwrt47yr4ag" path="res://Animations/ANIM_ZDie/ANIM_ZDie0011.png" id="11_ns7fv"]
+[ext_resource type="Texture2D" uid="uid://oskmahj6ow52" path="res://Animations/ANIM_ZDie/ANIM_ZDie0012.png" id="12_qqsm2"]
+[ext_resource type="Texture2D" uid="uid://c5ywjlvp2djl6" path="res://Animations/ANIM_ZDie/ANIM_ZDie0013.png" id="13_62syp"]
+[ext_resource type="Texture2D" uid="uid://cdllwjkpekl47" path="res://Animations/ANIM_ZDie/ANIM_ZDie0014.png" id="14_m7l2e"]
+[ext_resource type="Texture2D" uid="uid://dtikxc8tdrk1t" path="res://Animations/ANIM_ZDie/ANIM_ZDie0015.png" id="15_0p857"]
+[ext_resource type="Texture2D" uid="uid://b2yxni6yitgxx" path="res://Animations/ANIM_ZDie/ANIM_ZDie0016.png" id="16_4pahw"]
+[ext_resource type="Script" uid="uid://crvxn0b0p4k6e" path="res://objects/zombie_die.gd" id="17_8op8m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ugsp8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aofeb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8op8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qllco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g6yhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tyaxp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yr44o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_y3b8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_y2cs8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ycvpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_v6f50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ns7fv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qqsm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_62syp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_m7l2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_0p857")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4pahw")
+}],
+"loop": false,
+"name": &"Die",
+"speed": 30.0
+}]
+
+[node name="ZombieDie" type="AnimatedSprite2D"]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_ugsp8")
+animation = &"Die"
+script = ExtResource("17_8op8m")

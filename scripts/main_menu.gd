@@ -2,11 +2,11 @@ extends Control
 
 
 func _on_tutorial_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://objects/tutorial_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/tutorial_level.tscn")
 
 func _on_play_demo_button_pressed() -> void:
 
-	get_tree().change_scene_to_file("res://objects/Raveyard.tscn")
+	get_tree().change_scene_to_file("res://objects/Song_Select.tscn")
 
 
 

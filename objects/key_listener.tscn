@@ -165,5 +165,5 @@ text = "Miss!"
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../Perfect")
 libraries = {
-"": SubResource("AnimationLibrary_twja2")
+&"": SubResource("AnimationLibrary_twja2")
 }

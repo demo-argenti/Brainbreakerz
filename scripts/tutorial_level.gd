@@ -4,6 +4,10 @@ extends Node2D
 @onready var Crash = $Crash
 @onready var Grem = $Grem
 
+
+var ZombieDie = preload("res://objects/zombie_die.tscn")
+var ZombieFall = preload("res://objects/zombie_fall.tscn")
+var ZombieDeath = preload("res://objects/zombie_death.tscn")
 @export_enum("tutorial", "level_1", "level_2", "level_3") var level: int
 
 
@@ -12,6 +16,11 @@ func _ready():
 	
 	Global.out_of_lives.connect(_on_out_of_lives)
 	
+
+	$KeyListener.connect("Hit", SpykezZombieDie)
+	$KeyListener2.connect("Hit", CrashZombieDie)
+	$KeyListener3.connect("Hit", GremZombieDie)
+	ZombieDeath.connect("Done", Remove)
 	Global.is_high_score = false
 	Global.high_score = 0
 	
@@ -34,24 +43,51 @@ func _ready():
 
 func SpykezPerfect():
 	Spykez.play("Perfect")
+	$PerfectSplat.play()
 func SpykezMiss():
 	Spykez.play("Miss")
+	$MissScratch.play()
 func SpykezDone():
 	Spykez.play("Play")
 
 func CrashPerfect():
 	Crash.play("Perfect")
+	$PerfectSplat.play()
 func CrashMiss():
 	Crash.play("Miss")
+	$MissScratch.play()
 func CrashDone():
 	Crash.play("Play")
 	
 func GremPerfect():
 	Grem.play("Perfect")
+	$PerfectSplat.play()
 func GremMiss():
 	Grem.play("Miss")
+	$MissScratch.play()
 func GremDone():
 	Grem.play("Play")
+
+func SpykezZombieDie():
+	var instance = ZombieDeath.instantiate()
+	add_child(instance)
+	instance.position = Vector2(50, 230)
+	$HitSplat.play()
+
+func CrashZombieDie():
+	var instance = ZombieDeath.instantiate()
+	add_child(instance)
+	instance.position = Vector2(50, 360)
+	$HitSplat.play()
+
+func GremZombieDie():
+	var instance = ZombieDeath.instantiate()
+	add_child(instance)
+	instance.position = Vector2(50, 490)
+	$HitSplat.play()
+
+func Remove():
+	ZombieDeath.queue_free()
 
 func _on_conductor_finished():
 	if (SaveLoad.get_current_level_high_score(level) < Global.level_score):
