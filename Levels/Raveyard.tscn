@@ -612,14 +612,12 @@ lane_name = "upper_lane"
 [node name="KeyListener2" parent="." instance=ExtResource("2_hc4ek")]
 z_index = 1
 position = Vector2(64, 320)
-frame = 2
 lane_name = "middle_lane"
 spawn_beat = 1
 
 [node name="KeyListener3" parent="." instance=ExtResource("2_hc4ek")]
 z_index = 1
 position = Vector2(64, 448)
-frame = 3
 lane_name = "lower_lane"
 spawn_beat = 2
 

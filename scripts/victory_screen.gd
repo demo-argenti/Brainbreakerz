@@ -4,7 +4,7 @@ extends Control
 @onready var loop = $Loop
 
 func _ready():
-	$Transition.fade_in()
+	#$Transition.fade_in()
 	$CanvasLayer/Score.text = "Score: " + str(Global.level_score) + " pts"
 	$CanvasLayer/HighScore.text = "High Score: " + str(Global.high_score) + " pts"
 	start.play()
