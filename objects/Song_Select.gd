@@ -19,7 +19,7 @@ func fill_levels() -> void:
 
 		
 		button.pressed.connect(func():
-			$Transition.fade_out()
+			
 			get_tree().change_scene_to_file(level_folder_parth + level_path)
 			)
 
