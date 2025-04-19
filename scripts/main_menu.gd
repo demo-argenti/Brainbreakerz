@@ -23,3 +23,7 @@ func _process(delta):
 	if $AudioStreamPlayer.playing == false:
 		$AudioStreamPlayer.play()
 	pass
+
+func _on_qa_button_pressed() -> void:
+	OS.shell_open("https://docs.google.com/forms/d/1kDReHlWBeEDErFsOjzE4iWz2_2Z_-Y_64WP_xpmM_dw/edit?usp=drivesdk")
+	pass # Replace with function body.
