@@ -1,0 +1,90 @@
+[gd_scene load_steps=6 format=3 uid="uid://vsqo1arvx0pp"]
+
+[ext_resource type="Script" uid="uid://kht8spkjwnxw" path="res://objects/credits.gd" id="1_pf3wh"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="2_5ytc0"]
+[ext_resource type="Texture2D" uid="uid://bp4dldato0po7" path="res://backbutton.png" id="3_dbi57"]
+[ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="4_5ytc0"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_k2yj5"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_pf3wh")
+
+[node name="Bg" type="Sprite2D" parent="."]
+position = Vector2(577, 323.5)
+scale = Vector2(0.603125, 0.602778)
+texture = ExtResource("2_5ytc0")
+
+[node name="BackButton" type="Button" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_k2yj5")
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 946.0
+offset_top = 55.0
+offset_right = 2172.0
+offset_bottom = 975.0
+scale = Vector2(0.0960232, 0.0913065)
+icon = ExtResource("3_dbi57")
+flat = true
+
+[node name="Credits" type="Label" parent="."]
+layout_mode = 0
+offset_left = 456.0
+offset_top = 120.0
+offset_right = 713.0
+offset_bottom = 223.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 75
+text = "Credits"
+
+[node name="Dainel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 266.0
+offset_right = 584.0
+offset_bottom = 369.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Lead Programmer: Daniel Berry"
+
+[node name="Anthony" type="Label" parent="."]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 386.0
+offset_right = 584.0
+offset_bottom = 489.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = " Programmer: Anthony Ardolina"
+
+[node name="Bailey" type="Label" parent="."]
+layout_mode = 0
+offset_left = 679.0
+offset_top = 262.0
+offset_right = 1212.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Team Lead: Bailey Miller"
+
+[node name="Bailey2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 688.0
+offset_top = 381.0
+offset_right = 1221.0
+offset_bottom = 484.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+text = "Art: Ali Trent"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_5ytc0")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
