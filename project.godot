@@ -13,7 +13,9 @@ config_version=5
 config/name="BrainBreakerz"
 run/main_scene="uid://cgh0debrlwcy2"
 config/features=PackedStringArray("4.4", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=500
 
 [autoload]
 
@@ -27,6 +29,10 @@ window/stretch/mode="canvas_items"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/sm_file_importer/plugin.cfg")
+
+[gui]
+
+theme/custom_font="uid://cybuyfk5r8ceq"
 
 [input]
 

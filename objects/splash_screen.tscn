@@ -1,0 +1,54 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdiawcbxtfybt"]
+
+[ext_resource type="Script" uid="uid://dgf0bmkuodesg" path="res://objects/splash_screen.gd" id="1_olydu"]
+[ext_resource type="Texture2D" uid="uid://csh5eisjf3eyc" path="res://assets/Mind Blown.png" id="2_vdxpb"]
+[ext_resource type="Texture2D" uid="uid://c7l2ren0awoi0" path="res://assets/Headphones.png" id="3_gepiw"]
+[ext_resource type="Texture2D" uid="uid://bkke4j3frdrld" path="res://assets/logo_vertical_color_dark.svg" id="4_qqke2"]
+
+[node name="Splash Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_olydu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Headphones" type="TextureRect" parent="MarginContainer/CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("3_gepiw")
+
+[node name="Godot" type="TextureRect" parent="MarginContainer/CenterContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_qqke2")
+
+[node name="MindBlown" type="TextureRect" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("2_vdxpb")
