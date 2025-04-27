@@ -22,9 +22,9 @@ func _process(delta: float) -> void:
 
 func _on_increment_score(precision):
 	if precision == 1:
-		Global.level_score += 300
+		Global.level_score += 500
 	elif precision == 2:
-		Global.level_score += 200
+		Global.level_score += 250
 	elif precision == 3:
 		Global.level_score += 100
 	elif precision == 4:
