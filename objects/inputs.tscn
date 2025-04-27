@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1bdjonlsh73o"]
+[gd_scene load_steps=22 format=3 uid="uid://d1bdjonlsh73o"]
 
 [ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_vpewo"]
 [ext_resource type="Script" uid="uid://kjoiwukrg3x7" path="res://scripts/inputs.gd" id="2_p8p57"]
@@ -18,7 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://ett7groy7tus" path="res://Animations/ANIM_ZRun/ANIM_ZRun0014.png" id="16_3yyb8"]
 [ext_resource type="Texture2D" uid="uid://qo24dw7dpobo" path="res://Animations/ANIM_ZRun/ANIM_ZRun0015.png" id="17_1ya51"]
 [ext_resource type="Texture2D" uid="uid://cres5in43m35i" path="res://Animations/ANIM_ZRun/ANIM_ZRun0016.png" id="18_lcwmv"]
-[ext_resource type="Script" uid="uid://dcmyjh12nkf27" path="res://objects/zombie.gd" id="19_7hdpc"]
+[ext_resource type="Script" path="res://objects/zombie.gd" id="19_7hdpc"]
+[ext_resource type="Texture2D" uid="uid://bxnju4kdlvs0c" path="res://assets/crowd better.png" id="20_ie8wn"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_evhs1"]
 animations = [{
@@ -92,5 +93,8 @@ script = ExtResource("19_7hdpc")
 
 [node name="Tail" type="Line2D" parent="."]
 z_index = -1
+position = Vector2(0, 47)
 points = PackedVector2Array(0, -5, 0, -5)
-width = 40.0
+width = 150.0
+texture = ExtResource("20_ie8wn")
+texture_mode = 1

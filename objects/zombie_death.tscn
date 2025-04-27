@@ -171,6 +171,7 @@ animations = [{
 }]
 
 [node name="ZombieDeath" type="AnimatedSprite2D"]
+z_index = 2
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_71nmn")
 animation = &"FallDown"

@@ -1,18 +1,13 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=5 format=3 uid="uid://cgh0debrlwcy2"]
-=======
 [gd_scene load_steps=22 format=4 uid="uid://cgh0debrlwcy2"]
->>>>>>> Stashed changes
 
 [ext_resource type="Script" uid="uid://dum2jinj0efs2" path="res://scripts/main_menu.gd" id="1_m625n"]
-[ext_resource type="Theme" uid="uid://kidl1abmq23t" path="res://ButtonTexture.tres" id="2_dnha3"]
-[ext_resource type="Texture2D" uid="uid://dfpmxsjtuugsg" path="res://Title_Screen.png" id="2_wugcc"]
+[ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_66ak0"]
+[ext_resource type="Texture2D" uid="uid://c6lgnmr8aqf3b" path="res://Link_Button.png" id="3_g28sg"]
 [ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="3_gtid3"]
-<<<<<<< Updated upstream
-=======
-[ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="5_66ak0"]
-[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="7_7a1jj"]
-[ext_resource type="Texture2D" uid="uid://3xdsidcqqc42" path="res://logo.png" id="8_q6f42"]
+[ext_resource type="FontFile" uid="uid://cybuyfk5r8ceq" path="res://assets/junkos typewriter.ttf" id="4_tb1dm"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="5_7a1jj"]
+[ext_resource type="Texture2D" uid="uid://bor7fak7iyhml" path="res://GREMBUGREPORT.png" id="6_q6f42"]
+[ext_resource type="Texture2D" uid="uid://wxnenal2ppvf" path="res://logo.png" id="8_ljg04"]
 
 [sub_resource type="Image" id="Image_d0l0j"]
 data = {
@@ -2038,7 +2033,6 @@ LinkButton/constants/underline_spacing = 2
 LinkButton/font_sizes/font_size = 16
 LinkButton/fonts/font = SubResource("FontFile_5iomg")
 LinkButton/styles/focus = SubResource("StyleBoxTexture_eqouo")
->>>>>>> Stashed changes
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -2057,9 +2051,9 @@ script = ExtResource("1_m625n")
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 438.0
-offset_top = 366.0
+offset_top = 369.0
 offset_right = 738.0
-offset_bottom = 632.0
+offset_bottom = 669.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 z_index = 1
@@ -2068,21 +2062,25 @@ layout_mode = 2
 [node name="Tutorial_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("2_dnha3")
+theme = SubResource("Theme_g28sg")
+theme_override_fonts/font = ExtResource("4_tb1dm")
+theme_override_font_sizes/font_size = 20
 text = "Tutorial"
 
 [node name="Song_Select_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("2_dnha3")
+theme = SubResource("Theme_g28sg")
+theme_override_fonts/font = ExtResource("4_tb1dm")
+theme_override_font_sizes/font_size = 20
 text = "Song Select"
 
-<<<<<<< Updated upstream
-=======
 [node name="QA_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
+theme_override_fonts/font = ExtResource("4_tb1dm")
+theme_override_font_sizes/font_size = 20
 text = "QA Form
 "
 
@@ -2090,44 +2088,39 @@ text = "QA Form
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
-text = "Credits"
+theme_override_fonts/font = ExtResource("4_tb1dm")
+theme_override_font_sizes/font_size = 20
+text = "Credits
+"
 
->>>>>>> Stashed changes
 [node name="Quit_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-theme = ExtResource("2_dnha3")
+theme = SubResource("Theme_g28sg")
+theme_override_fonts/font = ExtResource("4_tb1dm")
+theme_override_font_sizes/font_size = 20
 text = "Peace out!"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(577, 323.5)
-scale = Vector2(0.6, 0.599074)
-texture = ExtResource("2_wugcc")
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(582, 332.5)
+scale = Vector2(0.605208, 0.615741)
+texture = ExtResource("5_7a1jj")
+
+[node name="Grembugreport" type="Sprite2D" parent="."]
+position = Vector2(804, 506)
+scale = Vector2(0.141667, 0.111111)
+texture = ExtResource("6_q6f42")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gtid3")
 
-<<<<<<< Updated upstream
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial_Button" to="." method="_on_tutorial_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Song_Select_Button" to="." method="_on_play_demo_button_pressed"]
-=======
-[node name="Transition" parent="." instance=ExtResource("5_66ak0")]
-visible = false
-
-[node name="Bg" type="Sprite2D" parent="."]
-position = Vector2(582, 328)
-scale = Vector2(0.604167, 0.609259)
-texture = ExtResource("7_7a1jj")
-
 [node name="Logo" type="Sprite2D" parent="."]
-position = Vector2(590, 212)
-scale = Vector2(0.451493, 0.398873)
-texture = ExtResource("8_q6f42")
+position = Vector2(576, 190)
+scale = Vector2(0.462687, 0.42586)
+texture = ExtResource("8_ljg04")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial_Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Song_Select_Button" to="." method="_on_play_demo_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/QA_Button" to="." method="_on_qa_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Credits_Button" to="." method="_on_credits_button_pressed"]
->>>>>>> Stashed changes
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
