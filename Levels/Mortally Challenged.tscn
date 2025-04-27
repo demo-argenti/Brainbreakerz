@@ -1,4 +1,6 @@
-[gd_scene load_steps=148 format=3 uid="uid://6lqr72nufpyi"]
+
+[gd_scene load_steps=149 format=3 uid="uid://6lqr72nufpyi"]
+
 
 [ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_pfj4w"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="2_rsqcl"]
@@ -144,6 +146,9 @@
 [ext_resource type="AudioStream" uid="uid://c22iis88oeslu" path="res://sounds/music/SFX_Splat.mp3" id="142_klrp4"]
 [ext_resource type="AudioStream" uid="uid://e756544u4goe" path="res://sounds/music/SFX_Whoops!.mp3" id="143_1uwio"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="144_klrp4"]
+
+[ext_resource type="Texture2D" uid="uid://gr4onrak7aoa" path="res://Stage.png" id="145_1uwio"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{
@@ -629,27 +634,38 @@ chart_name = "res://Song Charts/Mortally Challenged.sm"
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
-position = Vector2(431, 324)
+
+position = Vector2(358, 325)
+
 scale = Vector2(0.598944, 0.601677)
 texture = ExtResource("6_1uwio")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(432, 322)
+
+position = Vector2(358, 325)
 
 [node name="Spykez" type="AnimatedSprite2D" parent="."]
-position = Vector2(-48.92, 155.97)
-scale = Vector2(0.175, 0.175)
+z_index = 3
+position = Vector2(-101.115, 194.04)
+scale = Vector2(0.2, 0.2)
+
 sprite_frames = SubResource("SpriteFrames_o6ij6")
 animation = &"Play"
 
 [node name="Crash" type="AnimatedSprite2D" parent="."]
-position = Vector2(-53.75, 322.785)
-scale = Vector2(0.175, 0.175)
+
+z_index = 3
+position = Vector2(-96.99, 322.785)
+scale = Vector2(0.255, 0.255)
+
 sprite_frames = SubResource("SpriteFrames_qfnhh")
 animation = &"Perfect"
 
 [node name="Grem" type="AnimatedSprite2D" parent="."]
-position = Vector2(-44.435, 454.565)
+
+z_index = 3
+position = Vector2(-70.945, 471.605)
+
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_8kua2")
 animation = &"Play"
@@ -664,6 +680,13 @@ stream = ExtResource("142_klrp4")
 stream = ExtResource("143_1uwio")
 
 [node name="Transition" parent="." instance=ExtResource("144_klrp4")]
-position = Vector2(-150, 0)
+
+
+[node name="Stage" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(359, 325)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("145_1uwio")
+
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]

@@ -13,10 +13,15 @@ func _process(delta):
 	pass
 
 func _on_retry_pressed() -> void:
-	get_tree().change_scene_to_file(Global.current_level)
+	Transition.transition(Global.current_level)
+
+
+func _on_main_menu_button_pressed() -> void:
+	Transition.transition("res://objects/Main_Menu.tscn")
+
 
 
 func _on_main_menu_pressed() -> void:
 	Transition.transition("res://objects/Main_Menu.tscn")
 	
-	
+

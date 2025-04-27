@@ -21,6 +21,8 @@
 [ext_resource type="Script" path="res://objects/zombie.gd" id="19_7hdpc"]
 [ext_resource type="Texture2D" uid="uid://bxnju4kdlvs0c" path="res://assets/crowd better.png" id="20_ie8wn"]
 
+[ext_resource type="Texture2D" uid="uid://bxnju4kdlvs0c" path="res://assets/crowd better.png" id="20_ie8wn"]
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_evhs1"]
 animations = [{
 "frames": [{

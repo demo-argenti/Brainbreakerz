@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csh5eisjf3eyc" path="res://assets/Mind Blown.png" id="2_vdxpb"]
 [ext_resource type="Texture2D" uid="uid://c7l2ren0awoi0" path="res://assets/Headphones.png" id="3_gepiw"]
 
+
 [sub_resource type="Animation" id="Animation_3hsql"]
 resource_name = "MindBlown"
 length = 3.0
@@ -20,6 +21,7 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+
 [sub_resource type="Animation" id="Animation_olydu"]
 resource_name = "Headphones"
 length = 3.25
@@ -35,6 +37,23 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+
+
+[sub_resource type="Animation" id="Animation_3hsql"]
+resource_name = "MindBlown"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/CenterContainer/MindBlown/MindBlownSprite:modulate")
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 
 [sub_resource type="Animation" id="Animation_vdxpb"]
 length = 0.001

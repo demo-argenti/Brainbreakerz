@@ -3,7 +3,10 @@ extends Control
 
 func _on_tutorial_button_pressed() -> void:
 	#$Transition.fade_out()
-	Transition.transition("res://Levels/Warmin' Up.tscn")
+
+	Transition.transition("res://objects/Tutorial_Info.tscn")
+
+
 	#get_tree().change_scene_to_file("res://Levels/Warmin' Up.tscn")
 	
 
@@ -14,6 +17,7 @@ func _on_play_demo_button_pressed() -> void:
 
 
 func _on_credits_button_pressed() -> void:
+	Transition.transition("res://objects/Credits.tscn")
 	pass # Replace with function body.
 
 

@@ -7,6 +7,9 @@ extends Node2D
 
 var ZombieDie = preload("res://objects/zombie_die.tscn")
 var ZombieFall = preload("res://objects/zombie_fall.tscn")
+
+#Feedback isnt working yet so func's that use it are commented out
+var Feedback = preload("res://objects/Feedback.tscn")
 var ZombieDeath = preload("res://objects/zombie_death.tscn")
 @export_enum("tutorial", "level_1", "level_2", "level_3") var level: int
 
@@ -33,20 +36,43 @@ func _ready():
 	$Grem.connect("animation_finished", GremDone)
 	
 	$KeyListener.connect("PerfectHit", SpykezPerfect)
+	$KeyListener.connect("GreatHit", SpykezGreat)
+	$KeyListener.connect("GoodHit", SpykezGreat)
 	$KeyListener.connect("MissHit", SpykezMiss)
 	
 	$KeyListener2.connect("PerfectHit", CrashPerfect)
+	$KeyListener2.connect("GoodHit", CrashGreat)
+	$KeyListener2.connect("MissHit", CrashGood)
 	$KeyListener2.connect("MissHit", CrashMiss)
 	
 	$KeyListener3.connect("PerfectHit", GremPerfect)
+	$KeyListener3.connect("GoodHit", GremGreat)
+	$KeyListener3.connect("MissHit", GremGood)
 	$KeyListener3.connect("MissHit", GremMiss)
 	
+
 	#$Transition.fade_in()
 
 func SpykezPerfect():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 230)
 	Spykez.play("Perfect")
 	$PerfectSplat.play()
+func SpykezGreat():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 230)
+	pass
+func SpykezGood():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 230)
+	pass
 func SpykezMiss():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 230)
 	Spykez.play("Miss")
 	$MissScratch.play()
 func SpykezDone():
@@ -54,18 +80,50 @@ func SpykezDone():
 
 func CrashPerfect():
 	Crash.play("Perfect")
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 360)
 	$PerfectSplat.play()
+func CrashGreat():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 360)
+	pass
+func CrashGood():
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 360)
+	pass
 func CrashMiss():
 	Crash.play("Miss")
+	#var instance = Feedback.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 360)
 	$MissScratch.play()
 func CrashDone():
 	Crash.play("Play")
 	
 func GremPerfect():
 	Grem.play("Perfect")
+	#var instance = ZombieDeath.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 490)
 	$PerfectSplat.play()
+func GremGreat():
+	#var instance = ZombieDeath.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 490)
+	pass
+func GremGood():
+	#var instance = ZombieDeath.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 490)
+	pass
 func GremMiss():
 	Grem.play("Miss")
+	#var instance = ZombieDeath.instantiate()
+	#add_child(instance)
+	#instance.position = Vector2(50, 490)
 	$MissScratch.play()
 func GremDone():
 	Grem.play("Play")

@@ -54,10 +54,12 @@ func _physics_process(delta: float) -> void:
 						if hit == Global.GREAT:
 							$AnimationPlayer.play("great_fade")
 							# print ("Great!")
+							emit_signal("GreatHit")
 							emit_signal("Hit")
 						if hit == Global.GOOD:
 							$AnimationPlayer.play("good_fade")
 							# print ("Good!")
+							emit_signal("GoodHit")
 							emit_signal("Hit")
 						Global.increment_score.emit(hit)	
 			if Input.is_action_pressed(lane_name):

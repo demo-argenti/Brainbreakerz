@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://hgt0ag1icea5"]
+
+[ext_resource type="Script" uid="uid://djhjegye4umio" path="res://objects/credits.gd" id="1_5ytc0"]
+[ext_resource type="Texture2D" uid="uid://b8mcfqhkinnfh" path="res://Credits.png" id="2_dbi57"]
+[ext_resource type="Texture2D" uid="uid://bp4dldato0po7" path="res://backbutton.png" id="3_lw2hh"]
+[ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="4_ap230"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s70hm"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ytc0")
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(576, 324.5)
+scale = Vector2(0.6, 0.599074)
+texture = ExtResource("2_dbi57")
+
+[node name="BackButton" type="Button" parent="."]
+z_index = 1
+material = SubResource("CanvasItemMaterial_s70hm")
+custom_minimum_size = Vector2(10, 10)
+layout_mode = 0
+offset_left = 663.0
+offset_top = 22.0
+offset_right = 1889.0
+offset_bottom = 942.0
+scale = Vector2(0.0960232, 0.0913065)
+icon = ExtResource("3_lw2hh")
+flat = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ap230")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
