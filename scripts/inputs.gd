@@ -36,9 +36,9 @@ var is_held_note : bool
 var duration : float
 var held_time_tick : float
 
-const PERFECT_RANGE = 0.025
-const GREAT_RANGE = 0.04
-const GOOD_RANGE = 0.08
+const PERFECT_RANGE = 0.024
+const GREAT_RANGE = 0.08
+const GOOD_RANGE = 0.16
 
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 

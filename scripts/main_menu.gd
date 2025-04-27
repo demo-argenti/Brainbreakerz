@@ -4,6 +4,7 @@ extends Control
 func _on_tutorial_button_pressed() -> void:
 	#$Transition.fade_out()
 	Transition.transition("res://objects/Tutorial_Info.tscn")
+
 	#get_tree().change_scene_to_file("res://Levels/Warmin' Up.tscn")
 	
 

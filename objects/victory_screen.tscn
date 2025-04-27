@@ -1,11 +1,13 @@
 [gd_scene load_steps=23 format=4 uid="uid://rq8mxy5brgka"]
 
+
 [ext_resource type="Script" uid="uid://dcv0f4aq8pobw" path="res://scripts/victory_screen.gd" id="1_d4lgv"]
 [ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="2_me5jy"]
 [ext_resource type="Texture2D" uid="uid://ja0jkruq281y" path="res://BG_Victory.png" id="3_gjw2g"]
 [ext_resource type="AudioStream" uid="uid://c0rnlwonfg4wo" path="res://sounds/music/MUS_VictoryStart.mp3" id="4_gjw2g"]
 [ext_resource type="AudioStream" uid="uid://d25psfl8f0a4e" path="res://sounds/music/MUS_VictoryLoop.mp3" id="5_3mms0"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="6_766ou"]
+
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="7_jumlq"]
 [ext_resource type="Texture2D" uid="uid://c6lgnmr8aqf3b" path="res://Link_Button.png" id="8_naf1r"]
 [ext_resource type="FontFile" uid="uid://cybuyfk5r8ceq" path="res://assets/junkos typewriter.ttf" id="9_c3pna"]
@@ -2035,6 +2037,7 @@ LinkButton/font_sizes/font_size = 16
 LinkButton/fonts/font = SubResource("FontFile_sbilw")
 LinkButton/styles/focus = SubResource("StyleBoxTexture_2p7aq")
 
+
 [node name="Victory Screen" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -2103,6 +2106,7 @@ stream = ExtResource("5_3mms0")
 
 [node name="Transition" parent="." instance=ExtResource("6_766ou")]
 
+
 [node name="MainMenu_Button" type="Button" parent="."]
 custom_minimum_size = Vector2(0, 50)
 offset_left = 749.0
@@ -2115,3 +2119,4 @@ theme_override_font_sizes/font_size = 20
 text = "Main Menu"
 
 [connection signal="pressed" from="MainMenu_Button" to="." method="_on_main_menu_button_pressed"]
+

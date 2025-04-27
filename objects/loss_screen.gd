@@ -15,5 +15,8 @@ func _process(delta):
 func _on_retry_pressed() -> void:
 	Transition.transition(Global.current_level)
 
+
 func _on_main_menu_button_pressed() -> void:
 	Transition.transition("res://objects/Main_Menu.tscn")
+
+

@@ -1,4 +1,6 @@
+
 [gd_scene load_steps=149 format=3 uid="uid://bjfmihqmkj73n"]
+
 
 [ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_j1l5c"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="2_hc4ek"]
@@ -144,7 +146,9 @@
 [ext_resource type="AudioStream" uid="uid://c22iis88oeslu" path="res://sounds/music/SFX_Splat.mp3" id="142_nek6x"]
 [ext_resource type="AudioStream" uid="uid://e756544u4goe" path="res://sounds/music/SFX_Whoops!.mp3" id="143_ljyca"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="144_hc4ek"]
+
 [ext_resource type="Texture2D" uid="uid://gr4onrak7aoa" path="res://Stage.png" id="145_0a3fl"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{
@@ -669,10 +673,12 @@ stream = ExtResource("143_ljyca")
 
 [node name="Transition" parent="." instance=ExtResource("144_hc4ek")]
 
+
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(359, 325)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("145_0a3fl")
+
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
