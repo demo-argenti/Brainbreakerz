@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Warmin' Up.tscn")
+	Transition.transition("res://Levels/Warmin' Up.tscn")
 	pass 
 
 

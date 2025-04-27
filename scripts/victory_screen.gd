@@ -13,8 +13,8 @@ func _process(delta):
 	if start.playing == false && loop.playing == false:
 		loop.play()
 
-func _on_main_menu_pressed() -> void:
+
+func _on_main_menu_button_pressed() -> void:
 	Global.is_high_score = false
 	Global.high_score = 0
 	Transition.transition("res://objects/Main_Menu.tscn")
-	
