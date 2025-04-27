@@ -16,5 +16,5 @@ func _process(delta):
 func _on_main_menu_pressed() -> void:
 	Global.is_high_score = false
 	Global.high_score = 0
-	get_tree().change_scene_to_file("res://objects/Main_Menu.tscn")
+	Transition.transition("res://objects/Main_Menu.tscn")
 	

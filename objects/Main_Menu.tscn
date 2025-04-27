@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://cgh0debrlwcy2"]
+[gd_scene load_steps=20 format=4 uid="uid://cgh0debrlwcy2"]
 
 [ext_resource type="Script" uid="uid://dum2jinj0efs2" path="res://scripts/main_menu.gd" id="1_m625n"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_66ak0"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c6lgnmr8aqf3b" path="res://Link_Button.png" id="3_g28sg"]
 [ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="3_gtid3"]
 [ext_resource type="FontFile" uid="uid://cybuyfk5r8ceq" path="res://assets/junkos typewriter.ttf" id="4_tb1dm"]
-[ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="5_66ak0"]
 
 [sub_resource type="Image" id="Image_d0l0j"]
 data = {
@@ -2098,9 +2097,6 @@ texture = ExtResource("2_wugcc")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_gtid3")
-
-[node name="Transition" parent="." instance=ExtResource("5_66ak0")]
-visible = false
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial_Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Song_Select_Button" to="." method="_on_play_demo_button_pressed"]

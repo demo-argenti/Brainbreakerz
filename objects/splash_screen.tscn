@@ -1,9 +1,74 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdiawcbxtfybt"]
+[gd_scene load_steps=8 format=3 uid="uid://cdiawcbxtfybt"]
 
 [ext_resource type="Script" uid="uid://dgf0bmkuodesg" path="res://objects/splash_screen.gd" id="1_olydu"]
 [ext_resource type="Texture2D" uid="uid://csh5eisjf3eyc" path="res://assets/Mind Blown.png" id="2_vdxpb"]
 [ext_resource type="Texture2D" uid="uid://c7l2ren0awoi0" path="res://assets/Headphones.png" id="3_gepiw"]
-[ext_resource type="Texture2D" uid="uid://bkke4j3frdrld" path="res://assets/logo_vertical_color_dark.svg" id="4_qqke2"]
+
+[sub_resource type="Animation" id="Animation_3hsql"]
+resource_name = "MindBlown"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/CenterContainer/MindBlown/MindBlownSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_olydu"]
+resource_name = "Headphones"
+length = 3.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/CenterContainer/Headphones/HeadphonesSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.5, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vdxpb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/CenterContainer/MindBlown/MindBlownSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/CenterContainer/Headphones/HeadphonesSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gepiw"]
+_data = {
+&"Headphones": SubResource("Animation_olydu"),
+&"MindBlown": SubResource("Animation_3hsql"),
+&"RESET": SubResource("Animation_vdxpb")
+}
 
 [node name="Splash Screen" type="Control"]
 layout_mode = 3
@@ -37,18 +102,25 @@ grow_vertical = 2
 layout_mode = 2
 metadata/_edit_use_anchors_ = true
 
-[node name="Headphones" type="TextureRect" parent="MarginContainer/CenterContainer"]
-visible = false
+[node name="MindBlown" type="Control" parent="MarginContainer/CenterContainer"]
 layout_mode = 2
+
+[node name="MindBlownSprite" type="Sprite2D" parent="MarginContainer/CenterContainer/MindBlown"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_vdxpb")
+
+[node name="Headphones" type="Control" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+
+[node name="HeadphonesSprite" type="Sprite2D" parent="MarginContainer/CenterContainer/Headphones"]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_gepiw")
 
-[node name="Godot" type="TextureRect" parent="MarginContainer/CenterContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("4_qqke2")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_gepiw")
+}
 
-[node name="MindBlown" type="TextureRect" parent="MarginContainer/CenterContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = ExtResource("2_vdxpb")
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
