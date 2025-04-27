@@ -662,6 +662,5 @@ stream = ExtResource("141_vpsan")
 stream = ExtResource("142_nb7hj")
 
 [node name="Transition" parent="." instance=ExtResource("143_58ien")]
-position = Vector2(1395.11, 450.724)
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]
