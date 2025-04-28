@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hgt0ag1icea5"]
 
 [ext_resource type="Script" uid="uid://djhjegye4umio" path="res://objects/credits.gd" id="1_5ytc0"]
-[ext_resource type="Texture2D" uid="uid://b8mcfqhkinnfh" path="res://Credits.png" id="2_dbi57"]
+[ext_resource type="Texture2D" uid="uid://bkfa3d28d4tme" path="res://assets/credits_uncensored.png" id="2_5ytc0"]
 [ext_resource type="Texture2D" uid="uid://bp4dldato0po7" path="res://backbutton.png" id="3_lw2hh"]
 [ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="4_ap230"]
 
@@ -19,7 +19,7 @@ script = ExtResource("1_5ytc0")
 [node name="Credits" type="Sprite2D" parent="."]
 position = Vector2(576, 324.5)
 scale = Vector2(0.6, 0.599074)
-texture = ExtResource("2_dbi57")
+texture = ExtResource("2_5ytc0")
 
 [node name="BackButton" type="Button" parent="."]
 z_index = 1
