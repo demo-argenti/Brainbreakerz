@@ -24,4 +24,3 @@ func _on_main_menu_button_pressed() -> void:
 func _on_main_menu_pressed() -> void:
 	Transition.transition("res://objects/Main_Menu.tscn")
 	
-

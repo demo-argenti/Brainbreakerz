@@ -15,27 +15,25 @@ func _process(delta):
 
 func _on_warmin_up_pressed() -> void:
 	
-	get_tree().change_scene_to_file("res://Levels/Warmin' Up.tscn")
+	Transition.transition("res://Levels/Warmin' Up.tscn")
 
 
 
 func _on_raveyard_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Raveyard.tscn")
+	Transition.transition("res://Levels/Raveyard.tscn")
 
 
 func _on_mortally_challenged_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Mortally Challenged.tscn")
+	Transition.transition("res://Levels/Mortally Challenged.tscn")
 
 
 func _on_yatatatata_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Yatatatata.tscn")
+	Transition.transition("res://Levels/Yatatatata.tscn")
 
 
 func _on_back_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://objects/Main_Menu.tscn")
-	pass # Replace with function body.
+	Transition.transition("res://objects/Main_Menu.tscn")
 
 
 func _on_deadlock_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/Deadlock.tscn")
-	pass # Replace with function body.
+	Transition.transition("res://Levels/Deadlock.tscn")
