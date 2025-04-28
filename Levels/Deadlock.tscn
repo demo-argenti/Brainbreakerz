@@ -1,6 +1,5 @@
 [gd_scene load_steps=149 format=3 uid="uid://r06wpo4l4v74"]
 
-
 [ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_no63b"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="2_t7ees"]
 [ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor.tscn" id="3_hollp"]
@@ -145,11 +144,7 @@
 [ext_resource type="AudioStream" uid="uid://c22iis88oeslu" path="res://sounds/music/SFX_Splat.mp3" id="142_g431x"]
 [ext_resource type="AudioStream" uid="uid://e756544u4goe" path="res://sounds/music/SFX_Whoops!.mp3" id="143_6w4rp"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="144_g431x"]
-
-
 [ext_resource type="Texture2D" uid="uid://gr4onrak7aoa" path="res://Stage.png" id="145_6w4rp"]
-
-
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{
@@ -635,38 +630,30 @@ chart_name = "res://Song Charts/Deadlock.sm"
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
-
 position = Vector2(358, 325)
-
 scale = Vector2(0.598944, 0.601677)
 texture = ExtResource("6_6w4rp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-
 position = Vector2(358, 325)
 
 [node name="Spykez" type="AnimatedSprite2D" parent="."]
 z_index = 3
 position = Vector2(-101.115, 194.04)
 scale = Vector2(0.2, 0.2)
-
 sprite_frames = SubResource("SpriteFrames_o6ij6")
 animation = &"Play"
 
 [node name="Crash" type="AnimatedSprite2D" parent="."]
-
 z_index = 3
 position = Vector2(-96.99, 322.785)
 scale = Vector2(0.255, 0.255)
-
 sprite_frames = SubResource("SpriteFrames_qfnhh")
 animation = &"Perfect"
 
 [node name="Grem" type="AnimatedSprite2D" parent="."]
-
 z_index = 3
 position = Vector2(-70.945, 471.605)
-
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_8kua2")
 animation = &"Play"
@@ -682,12 +669,10 @@ stream = ExtResource("143_6w4rp")
 
 [node name="Transition" parent="." instance=ExtResource("144_g431x")]
 
-
 [node name="Stage" type="Sprite2D" parent="."]
 z_index = 2
 position = Vector2(359, 325)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("145_6w4rp")
-
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]

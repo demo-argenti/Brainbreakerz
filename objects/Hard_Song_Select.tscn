@@ -2247,7 +2247,7 @@ flat = true
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Warmin\'Up" to="." method="_on_warmin_up_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Raveyard" to="." method="_on_raveyard_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Mortally Challenged" to="." method="_on_mortally_challenged_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Deadlock" to="." method="_on_deadlock_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Deadlock" to="." method="_on_mortally_challenged_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Deadlock" to="." method="_on_deadlock_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Yatatatata" to="." method="_on_yatatatata_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
