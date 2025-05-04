@@ -30,6 +30,10 @@ Transition="*res://objects/transition.tscn"
 
 window/stretch/mode="canvas_items"
 
+[dotnet]
+
+project/assembly_name="BrainBreakerz"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/sm_file_importer/plugin.cfg")
