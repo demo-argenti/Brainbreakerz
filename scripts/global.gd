@@ -16,7 +16,7 @@ signal increment_score(precision)
 signal increment_life()
 signal lose_life()
 
-var note_chart
+var note_chart : Array
 
 var current_song_position : float
 var current_beat : float

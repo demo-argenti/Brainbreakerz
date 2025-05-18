@@ -12,8 +12,8 @@ extends AudioStreamPlayer
 
 @export var chart_name : String
 
-var time_start
-var time_current
+var time_start : float
+var time_current : float
 
 # song position variables
 var song_position : float = 0 # current position in song in seconds
@@ -80,11 +80,11 @@ func _physics_process(delta: float) -> void:
 
 
 
-func play_with_offset():
+func play_with_offset()  -> void:
 	play(0 - start_offset)
 	
 
-func play_from_beat(beat, offset):
+func play_from_beat(beat, offset)  -> void:
 	play()
 	seek(beat * quarter_length - start_offset)
 

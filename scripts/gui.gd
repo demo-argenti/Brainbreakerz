@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 	$CanvasLayer/ScoreLabel.text = str(Global.level_score) + " pts"
 	$CanvasLayer/LivesLabel.text = str(Global.level_lives) + " lives"
 
-func _on_increment_score(precision):
+func _on_increment_score(precision) -> void:
 	if precision == 1:
 		Global.level_score += 500
 	elif precision == 2:
@@ -32,23 +32,23 @@ func _on_increment_score(precision):
 	update_thousands()
 
 
-func _on_increment_life():
+func _on_increment_life() -> void:
 	gain_life()
 	
-func _on_lose_life():
+func _on_lose_life() -> void:
 	lose_life()
 
 
-func gain_life():
+func gain_life() -> void:
 	Global.level_lives += 1
 
-func lose_life():
+func lose_life() -> void:
 	Global.level_lives -= 1
 	if Global.level_lives == 0:
 		Global.out_of_lives.emit()
 
 
-func update_thousands():
+func update_thousands() -> void:
 	if Global.level_score / 10000 > thousands:
 		gain_life()
 		thousands += 1

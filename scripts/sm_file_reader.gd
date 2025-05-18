@@ -18,17 +18,17 @@ var bpms : Array
 var charts : Array
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready() -> void:
 	pass
 
-func set_file():
+func set_file() -> void:
 	file = FileAccess.open(filename, FileAccess.READ)
 	if file == null:
 		var error_str: String = error_string(FileAccess.get_open_error())
 		push_warning("Couldn't open file because: %s" % error_str)
 
 
-func read_file():
+func read_file() -> void:
 	var line : String
 	var string_holder : String
 	
@@ -148,7 +148,7 @@ func _is_challenge_level(str : String) -> bool:
 	return false
 	
 # returns a dictionary containing the difficulty of the chart, and arrays holding the notes for each track	
-func _parse_note_inputs(chart_name : String, notes_holder : Array):
+func _parse_note_inputs(chart_name : String, notes_holder : Array) -> Dictionary:
 	var track_1 : Array
 	var track_2 : Array
 	var track_3 : Array

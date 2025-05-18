@@ -4,7 +4,7 @@ extends Sprite2D
 @onready var conductor = conductor_path
 
 
-var initial_x_position: float = 1216
+var initial_x_position : float = 1216
 var end_pos : Vector2
 var _actual_end_pos : Vector2
 var distance_to_travel
@@ -110,7 +110,7 @@ func _within_range(value, target, range):
 		return true
 	return false
 
-func get_ending_time():
+func get_ending_time() -> float:
 	if is_held_note:
 		return landing_time + duration * Global.quarter_length
 	else:
@@ -118,7 +118,7 @@ func get_ending_time():
 
 
 #calculates the actual distance the note needs to travel to hit the target on time while traveling off screen
-func _calculate_actual_distance():
+func _calculate_actual_distance() -> void:
 	actual_distance = (distance_to_travel/beat_speed) * (beat_speed+1)
 	_actual_end_pos.x = position.x - actual_distance
 	_actual_end_pos.y = position.y
@@ -137,7 +137,7 @@ func _physics_process(delta: float) -> void:
 		_die()
 		
 		
-func held_note_check():
+func held_note_check() -> bool:
 	var time = Global.current_song_position
 	if time > landing_time and time < get_ending_time() and is_hit:
 		if time > held_time_tick:
@@ -149,6 +149,6 @@ func held_note_check():
 # distance = speed / time, therefore I need the beat speed in order to calculate note trail lengths
 
 # destroys input note
-func _die():
+func _die() -> void:
 	queue_free()
 	

@@ -6,7 +6,7 @@ extends Control
 func _ready():
 	start.play()
 
-func _process(delta):
+func _process(delta) -> void:
 	
 	if start.playing == false && loop.playing == false:
 		loop.play()

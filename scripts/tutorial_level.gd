@@ -14,7 +14,7 @@ var ZombieDeath = preload("res://objects/zombie_death.tscn")
 @export_enum("tutorial", "level_1", "level_2", "level_3") var level: int
 
 
-func _ready():
+func _ready() -> void:
 	Global.current_level = get_tree().current_scene.scene_file_path
 	
 	Global.out_of_lives.connect(_on_out_of_lives)
@@ -53,103 +53,103 @@ func _ready():
 
 	#$Transition.fade_in()
 
-func SpykezPerfect():
+func SpykezPerfect() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 230)
 	Spykez.play("Perfect")
 	$PerfectSplat.play()
-func SpykezGreat():
+func SpykezGreat() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 230)
 	pass
-func SpykezGood():
+func SpykezGood() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 230)
 	pass
-func SpykezMiss():
+func SpykezMiss() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 230)
 	Spykez.play("Miss")
 	$MissScratch.play()
-func SpykezDone():
+func SpykezDone() -> void:
 	Spykez.play("Play")
 
-func CrashPerfect():
+func CrashPerfect() -> void:
 	Crash.play("Perfect")
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 360)
 	$PerfectSplat.play()
-func CrashGreat():
+func CrashGreat() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 360)
 	pass
-func CrashGood():
+func CrashGood() -> void:
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 360)
 	pass
-func CrashMiss():
+func CrashMiss() -> void:
 	Crash.play("Miss")
 	#var instance = Feedback.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 360)
 	$MissScratch.play()
-func CrashDone():
+func CrashDone() -> void:
 	Crash.play("Play")
 	
-func GremPerfect():
+func GremPerfect() -> void:
 	Grem.play("Perfect")
 	#var instance = ZombieDeath.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 490)
 	$PerfectSplat.play()
-func GremGreat():
+func GremGreat() -> void:
 	#var instance = ZombieDeath.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 490)
 	pass
-func GremGood():
+func GremGood() -> void:
 	#var instance = ZombieDeath.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 490)
 	pass
-func GremMiss():
+func GremMiss() -> void:
 	Grem.play("Miss")
 	#var instance = ZombieDeath.instantiate()
 	#add_child(instance)
 	#instance.position = Vector2(50, 490)
 	$MissScratch.play()
-func GremDone():
+func GremDone() -> void:
 	Grem.play("Play")
 
-func SpykezZombieDie():
+func SpykezZombieDie() -> void:
 	var instance = ZombieDeath.instantiate()
 	add_child(instance)
 	instance.position = Vector2(50, 230)
 	$HitSplat.play()
 
-func CrashZombieDie():
+func CrashZombieDie() -> void:
 	var instance = ZombieDeath.instantiate()
 	add_child(instance)
 	instance.position = Vector2(50, 360)
 	$HitSplat.play()
 
-func GremZombieDie():
+func GremZombieDie() -> void:
 	var instance = ZombieDeath.instantiate()
 	add_child(instance)
 	instance.position = Vector2(50, 490)
 	$HitSplat.play()
 
-func Remove():
+func Remove() -> void:
 	ZombieDeath.queue_free()
 
-func _on_conductor_finished():
+func _on_conductor_finished() -> void:
 	if (SaveLoad.get_current_level_high_score(level) < Global.level_score):
 		Global.is_high_score = true
 		SaveLoad.save_current_level_high_score(level, Global.level_score)
@@ -157,6 +157,6 @@ func _on_conductor_finished():
 	#$Transition.fade_out()
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 
-func _on_out_of_lives():
+func _on_out_of_lives() -> void:
 	
 	get_tree().change_scene_to_file("res://objects/loss_screen.tscn")
