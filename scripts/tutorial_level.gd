@@ -4,6 +4,8 @@ extends Node2D
 @onready var Crash = $Crash
 @onready var Grem = $Grem
 
+@onready var Conductor = $Conductor
+
 
 var ZombieDie = preload("res://objects/zombie_die.tscn")
 var ZombieFall = preload("res://objects/zombie_fall.tscn")
@@ -158,5 +160,4 @@ func _on_conductor_finished() -> void:
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 
 func _on_out_of_lives() -> void:
-	
 	get_tree().change_scene_to_file("res://objects/loss_screen.tscn")

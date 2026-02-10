@@ -30,7 +30,9 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={}
-directories/dtl_directory={}
+directories/dtl_directory={
+"Test Timeline": "res://Test Timeline.dtl"
+}
 layout/style_directory={}
 
 [display]
@@ -43,7 +45,7 @@ project/assembly_name="BrainBreakerz"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/sm_file_importer/plugin.cfg")
+enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/sm_file_importer/plugin.cfg")
 
 [gui]
 

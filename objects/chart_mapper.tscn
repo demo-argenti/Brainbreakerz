@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bny1vw66o6bui"]
+
+[ext_resource type="Script" uid="uid://bt71tmr373pgb" path="res://chart_mapper.gd" id="1_dl71t"]
+
+[node name="Chart_Mapper" type="Node"]
+script = ExtResource("1_dl71t")

@@ -78,13 +78,14 @@ func _physics_process(delta: float) -> void:
 			last_song_beat += quarter_length
 			# print(current_song_beat, "  ", current_bar_beat)
 
-
+func pause() -> void:
+	stop()
 
 func play_with_offset()  -> void:
 	play(0 - start_offset)
 	
 
-func play_from_beat(beat, offset)  -> void:
+func play_from_beat(beat)  -> void:
 	play()
 	seek(beat * quarter_length - start_offset)
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=147 format=3 uid="uid://fbih0f2eq2gl"]
+[gd_scene load_steps=148 format=3 uid="uid://fbih0f2eq2gl"]
 
 [ext_resource type="Script" uid="uid://bpjxha885kdgw" path="res://objects/transition.gd" id="1_qcm8m"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="1_ywn4t"]
@@ -143,6 +143,7 @@
 [ext_resource type="AudioStream" uid="uid://c22iis88oeslu" path="res://sounds/music/SFX_Splat.mp3" id="141_mq3ry"]
 [ext_resource type="AudioStream" uid="uid://e756544u4goe" path="res://sounds/music/SFX_Whoops!.mp3" id="142_y3iv2"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="143_mq3ry"]
+[ext_resource type="PackedScene" uid="uid://dg5dtlqeomcxx" path="res://objects/pause_menu.tscn" id="144_y3iv2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{
@@ -601,6 +602,7 @@ animations = [{
 }]
 
 [node name="TutorialLevel" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_qcm8m")
 
 [node name="KeyListener" parent="." instance=ExtResource("1_ywn4t")]
@@ -662,5 +664,7 @@ stream = ExtResource("141_mq3ry")
 stream = ExtResource("142_y3iv2")
 
 [node name="Transition" parent="." instance=ExtResource("143_mq3ry")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("144_y3iv2")]
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]

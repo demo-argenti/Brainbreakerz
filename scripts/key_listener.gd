@@ -28,7 +28,7 @@ func _ready() -> void:
 	$Miss.visible = false
 
 # Called every time step. 'delta' is the elapsed time since the previous time step.
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if input_queue.size() > 0:
 		if is_instance_valid(input_queue.front()):
 			if Global.current_song_position > input_queue.front().landing_time + 0.1:
