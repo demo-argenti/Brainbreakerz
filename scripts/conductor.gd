@@ -8,6 +8,8 @@ extends AudioStreamPlayer
 @onready var song_measures : int = beat_count/beats_per_bar
 @onready var start_timer = $StartTimer
 
+@onready var CountDownTimer = $CountDownTimer
+
 @onready var last_song_beat : float = 0
 
 @export var chart_name : String
@@ -46,11 +48,12 @@ func _ready() -> void:
 	beats_per_bar = stream.get_bar_beats()
 	song_measures = beat_count/beats_per_bar
 	
+	CountDownTimer.wait_time = quarter_length
+	
 	Global.note_chart = note_reader.charts
 	Global.note_chart_received.emit()
 	Global.quarter_length = quarter_length
 	Global.current_song_length = stream.get_length()
-	play_with_offset()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -82,21 +85,34 @@ func pause() -> void:
 	stop()
 
 func play_with_offset()  -> void:
-	play(0 - start_offset)
+	play(0 + start_offset)
+	
+func play_from_time(time : float) -> void:
+	play()
+	seek(time)
+	
+	current_bar_beat = (int((time - start_offset)/quarter_length) % beats_per_bar)
+	if current_bar_beat == 0:
+		current_bar_beat = beats_per_bar
 	
 
-func play_from_beat(beat)  -> void:
+func play_from_beat(beat: int)  -> void:
 	play()
-	seek(beat * quarter_length - start_offset)
+	seek(beat * quarter_length + start_offset)
 
 	
 	current_bar_beat = (beat % beats_per_bar)
 	if current_bar_beat == 0:
 		current_bar_beat = beats_per_bar
 	
-
+# Counts in four starting beats before playing the music
+func count_in():
+	CountDownTimer.wait_time = quarter_length
+	CountDownTimer.start()
+	
 func _on_start_timer_timeout() -> void:
-	play()	
+	print("timer done!")
+	play_from_time(song_position)	
 	song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
 	# Compensate for output latency.
 	song_position -= AudioServer.get_output_latency()
@@ -106,3 +122,16 @@ func _on_start_timer_timeout() -> void:
 	Global.bar_beat.emit(current_bar_beat)
 	Global.measure.emit(current_song_measure)
 	start_timer.stop()
+
+
+func _on_count_down_timer_timer_finished():
+	print("timer done!")
+	play_from_time(song_position)	
+	song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
+	# Compensate for output latency.
+	song_position -= AudioServer.get_output_latency()
+	
+	Global.song_time.emit(song_position)
+	Global.song_beat.emit(current_song_beat)
+	Global.bar_beat.emit(current_bar_beat)
+	Global.measure.emit(current_song_measure)

@@ -1,12 +1,36 @@
-[gd_scene load_steps=3 format=3 uid="uid://3528rt5yqpcc"]
+[gd_scene format=3 uid="uid://3528rt5yqpcc"]
 
-[ext_resource type="AudioStream" uid="uid://cfkx4q5j6m5fo" path="res://sounds/music/MUS_WarminUp.mp3" id="1_77kaa"]
+[ext_resource type="AudioStream" uid="uid://daefpjeil1wkr" path="res://sounds/music/MUS_WarminUp.mp3" id="1_77kaa"]
 [ext_resource type="Script" uid="uid://cxp16p26p064y" path="res://scripts/conductor.gd" id="1_gxd0s"]
+[ext_resource type="Script" uid="uid://cqbfiplx6m7no" path="res://objects/count_down_timer.gd" id="3_no8va"]
+[ext_resource type="AudioStream" uid="uid://bterrkp6uau87" path="res://sounds/sfx/Countdown/RG_CDown3.ogg" id="4_flifv"]
+[ext_resource type="AudioStream" uid="uid://b3mkq3su17x3j" path="res://sounds/sfx/Countdown/RG_CDown2.ogg" id="5_lg8bp"]
+[ext_resource type="AudioStream" uid="uid://y0hn15ermgpq" path="res://sounds/sfx/Countdown/RG_CDown1.ogg" id="6_824xf"]
+[ext_resource type="AudioStream" uid="uid://wswmsm7maldb" path="res://sounds/sfx/Countdown/RG_CDown_GO.ogg" id="7_gm7ne"]
 
-[node name="Conductor" type="AudioStreamPlayer"]
+[node name="Conductor" type="AudioStreamPlayer" unique_id=1465170177]
 stream = ExtResource("1_77kaa")
 script = ExtResource("1_gxd0s")
 
-[node name="StartTimer" type="Timer" parent="."]
+[node name="CountDownTimer" type="Node" parent="." unique_id=1101443611]
+script = ExtResource("3_no8va")
 
+[node name="BeatTimer" type="Timer" parent="CountDownTimer" unique_id=738585479]
+
+[node name="Three" type="AudioStreamPlayer" parent="CountDownTimer" unique_id=678004534]
+stream = ExtResource("4_flifv")
+
+[node name="Two" type="AudioStreamPlayer" parent="CountDownTimer" unique_id=2045947830]
+stream = ExtResource("5_lg8bp")
+
+[node name="One" type="AudioStreamPlayer" parent="CountDownTimer" unique_id=1679880226]
+stream = ExtResource("6_824xf")
+
+[node name="Go" type="AudioStreamPlayer" parent="CountDownTimer" unique_id=1643399229]
+stream = ExtResource("7_gm7ne")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=710476505]
+
+[connection signal="timer_finished" from="CountDownTimer" to="." method="_on_count_down_timer_timer_finished"]
+[connection signal="timeout" from="CountDownTimer/BeatTimer" to="CountDownTimer" method="_on_beat_timer_timeout"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

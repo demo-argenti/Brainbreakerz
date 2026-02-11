@@ -52,6 +52,7 @@ func _ready() -> void:
 	$KeyListener3.connect("MissHit", GremGood)
 	$KeyListener3.connect("MissHit", GremMiss)
 	
+	Conductor.count_in()
 
 	#$Transition.fade_in()
 
