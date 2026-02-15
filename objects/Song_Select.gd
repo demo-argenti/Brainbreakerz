@@ -27,8 +27,7 @@ func fill_levels() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
+	
 	pass
 
 

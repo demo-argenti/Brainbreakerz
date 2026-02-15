@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hgt0ag1icea5"]
+[gd_scene format=3 uid="uid://hgt0ag1icea5"]
 
 [ext_resource type="Script" uid="uid://djhjegye4umio" path="res://objects/credits.gd" id="1_5ytc0"]
 [ext_resource type="Texture2D" uid="uid://bkfa3d28d4tme" path="res://assets/credits_uncensored.png" id="2_5ytc0"]
@@ -7,7 +7,7 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s70hm"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=169378365]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,12 +16,12 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5ytc0")
 
-[node name="Credits" type="Sprite2D" parent="."]
+[node name="Credits" type="Sprite2D" parent="." unique_id=816788522]
 position = Vector2(576, 324.5)
 scale = Vector2(0.6, 0.599074)
 texture = ExtResource("2_5ytc0")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=405304445]
 z_index = 1
 material = SubResource("CanvasItemMaterial_s70hm")
 custom_minimum_size = Vector2(10, 10)
@@ -34,7 +34,7 @@ scale = Vector2(0.0960232, 0.0913065)
 icon = ExtResource("3_lw2hh")
 flat = true
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1854757772]
 stream = ExtResource("4_ap230")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

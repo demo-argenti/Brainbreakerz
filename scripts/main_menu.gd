@@ -24,10 +24,12 @@ func _on_credits_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
 
+func _ready() -> void:
+	AudioController.play_music();
+	pass # Replace with function body.
+
 func _process(delta) -> void:
 	
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
 	pass
 
 func _on_qa_button_pressed() -> void:

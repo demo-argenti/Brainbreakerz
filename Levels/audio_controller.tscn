@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cna42doxq7o8t"]
+
+[ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="1_tv8po"]
+[ext_resource type="Script" uid="uid://wrfi6w0y8sq" path="res://Levels/audio_controller.gd" id="1_ubjxr"]
+
+[node name="AudioController" type="Node2D" unique_id=198463720]
+script = ExtResource("1_ubjxr")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1343359189]
+stream = ExtResource("1_tv8po")

@@ -6,10 +6,8 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 
-func _process(delta):
+func _process(delta) -> void:
 	
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
 	pass
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bekwr5c7nyns1"]
+[gd_scene format=4 uid="uid://bekwr5c7nyns1"]
 
 [ext_resource type="Script" uid="uid://cchmdr7pg25o7" path="res://objects/hard_song_select.gd" id="1_jxho8"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_4slfr"]
@@ -31,6 +31,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -1187,6 +1196,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -2161,7 +2179,7 @@ LinkButton/styles/focus = SubResource("StyleBoxTexture_g28sg")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p10fs"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=1817497985]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2170,7 +2188,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jxho8")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=590312443]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 438.0
@@ -2178,11 +2196,11 @@ offset_top = 212.0
 offset_right = 738.0
 offset_bottom = 658.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1360516070]
 z_index = 1
 layout_mode = 2
 
-[node name="Warmin\'Up" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Warmin\'Up" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1263321247]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2190,7 +2208,7 @@ theme_override_fonts/font = ExtResource("4_taosf")
 theme_override_font_sizes/font_size = 16
 text = "Warmin'Up"
 
-[node name="Raveyard" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Raveyard" type="Button" parent="MarginContainer/VBoxContainer" unique_id=115578664]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2198,7 +2216,7 @@ theme_override_fonts/font = ExtResource("4_taosf")
 theme_override_font_sizes/font_size = 16
 text = "Raveyard"
 
-[node name="Mortally Challenged" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Mortally Challenged" type="Button" parent="MarginContainer/VBoxContainer" unique_id=620202297]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2206,7 +2224,7 @@ theme_override_fonts/font = ExtResource("4_taosf")
 theme_override_font_sizes/font_size = 16
 text = "Mortally Challenged"
 
-[node name="Deadlock" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Deadlock" type="Button" parent="MarginContainer/VBoxContainer" unique_id=107945095]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2214,7 +2232,7 @@ theme_override_fonts/font = ExtResource("4_taosf")
 theme_override_font_sizes/font_size = 16
 text = "Deadlock"
 
-[node name="Yatatatata" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Yatatatata" type="Button" parent="MarginContainer/VBoxContainer" unique_id=2134735342]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2222,16 +2240,16 @@ theme_override_fonts/font = ExtResource("4_taosf")
 theme_override_font_sizes/font_size = 16
 text = "Yatatatata"
 
-[node name="Bg" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+[node name="Bg" type="Sprite2D" parent="MarginContainer/VBoxContainer" unique_id=2040130120]
 z_index = -1
 position = Vector2(139, 112)
 scale = Vector2(0.599479, 0.6)
 texture = ExtResource("3_taosf")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=516789564]
 stream = ExtResource("4_ketwn")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=983286715]
 z_index = 1
 material = SubResource("CanvasItemMaterial_p10fs")
 custom_minimum_size = Vector2(10, 10)

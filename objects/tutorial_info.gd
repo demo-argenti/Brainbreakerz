@@ -11,8 +11,7 @@ extends Control
 
 
 func _process(delta: float) -> void:
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
+
 	pass
 
 

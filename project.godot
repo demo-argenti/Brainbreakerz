@@ -30,6 +30,7 @@ Global="*res://scripts/global.gd"
 SaveLoad="*res://scripts/SaveLoad.gd"
 Transition="*res://objects/transition.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+AudioController="*uid://cna42doxq7o8t"
 
 [dialogic]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://c0asqnjtwu4is"]
+[gd_scene format=4 uid="uid://c0asqnjtwu4is"]
 
 [ext_resource type="Script" uid="uid://dlng8kci3c317" path="res://objects/Song_Select.gd" id="1_60u22"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_i86hn"]
@@ -21,6 +21,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -1060,6 +1069,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -2034,7 +2052,7 @@ LinkButton/styles/focus = SubResource("StyleBoxTexture_g28sg")
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_uagdt"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=2139225742]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2043,7 +2061,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_60u22")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=1809011502]
 custom_minimum_size = Vector2(500, 500)
 layout_mode = 0
 offset_left = 445.0
@@ -2053,25 +2071,25 @@ offset_bottom = 633.0
 scale = Vector2(0.644231, 0.938746)
 follow_focus = true
 
-[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer" unique_id=795329302]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer" unique_id=1197184698]
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
 
-[node name="Bg" type="Sprite2D" parent="."]
+[node name="Bg" type="Sprite2D" parent="." unique_id=1850078195]
 z_index = -1
 position = Vector2(577.5, 323)
 scale = Vector2(0.598437, 0.596296)
 texture = ExtResource("3_i86hn")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1397213298]
 stream = ExtResource("4_5loct")
 
-[node name="BackButton" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="." unique_id=1401786914]
 z_index = 1
 material = SubResource("CanvasItemMaterial_uagdt")
 custom_minimum_size = Vector2(10, 10)

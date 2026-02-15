@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://cgh0debrlwcy2"]
+[gd_scene format=4 uid="uid://cgh0debrlwcy2"]
 
 [ext_resource type="Script" uid="uid://dum2jinj0efs2" path="res://scripts/main_menu.gd" id="1_m625n"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_66ak0"]
@@ -23,6 +23,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -1062,6 +1071,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -2034,7 +2052,7 @@ LinkButton/font_sizes/font_size = 16
 LinkButton/fonts/font = SubResource("FontFile_5iomg")
 LinkButton/styles/focus = SubResource("StyleBoxTexture_eqouo")
 
-[node name="Menu" type="Control"]
+[node name="Menu" type="Control" unique_id=2086432162]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2047,7 +2065,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m625n")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=804379886]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 0
 offset_left = 438.0
@@ -2055,11 +2073,11 @@ offset_top = 369.0
 offset_right = 738.0
 offset_bottom = 669.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1325431270]
 z_index = 1
 layout_mode = 2
 
-[node name="Tutorial_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Tutorial_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1403076999]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2067,7 +2085,7 @@ theme_override_fonts/font = ExtResource("4_tb1dm")
 theme_override_font_sizes/font_size = 20
 text = "Tutorial"
 
-[node name="Song_Select_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Song_Select_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=803074886]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2075,7 +2093,7 @@ theme_override_fonts/font = ExtResource("4_tb1dm")
 theme_override_font_sizes/font_size = 20
 text = "Song Select"
 
-[node name="QA_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="QA_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1855644134]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2084,7 +2102,7 @@ theme_override_font_sizes/font_size = 20
 text = "QA Form
 "
 
-[node name="Credits_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Credits_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1092447386]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2093,7 +2111,7 @@ theme_override_font_sizes/font_size = 20
 text = "Credits
 "
 
-[node name="Quit_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit_Button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1304649959]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_g28sg")
@@ -2101,20 +2119,20 @@ theme_override_fonts/font = ExtResource("4_tb1dm")
 theme_override_font_sizes/font_size = 20
 text = "Peace out!"
 
-[node name="BG" type="Sprite2D" parent="."]
+[node name="BG" type="Sprite2D" parent="." unique_id=450580827]
 position = Vector2(582, 332.5)
 scale = Vector2(0.605208, 0.615741)
 texture = ExtResource("5_7a1jj")
 
-[node name="Grembugreport" type="Sprite2D" parent="."]
+[node name="Grembugreport" type="Sprite2D" parent="." unique_id=1465858461]
 position = Vector2(804, 506)
 scale = Vector2(0.141667, 0.111111)
 texture = ExtResource("6_q6f42")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2089037358]
 stream = ExtResource("3_gtid3")
 
-[node name="Logo" type="Sprite2D" parent="."]
+[node name="Logo" type="Sprite2D" parent="." unique_id=65420033]
 position = Vector2(576, 190)
 scale = Vector2(0.462687, 0.42586)
 texture = ExtResource("8_ljg04")

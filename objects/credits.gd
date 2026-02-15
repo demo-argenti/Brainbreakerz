@@ -7,9 +7,7 @@ func _ready() -> void:
 
 
 func _process(delta):
-	
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
+
 	pass
 
 func _on_back_button_pressed() -> void:
