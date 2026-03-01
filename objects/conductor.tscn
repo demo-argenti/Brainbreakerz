@@ -8,7 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://y0hn15ermgpq" path="res://sounds/sfx/Countdown/RG_CDown1.ogg" id="6_824xf"]
 [ext_resource type="AudioStream" uid="uid://wswmsm7maldb" path="res://sounds/sfx/Countdown/RG_CDown_GO.ogg" id="7_gm7ne"]
 
-[node name="Conductor" type="AudioStreamPlayer" unique_id=1465170177]
+[node name="Conductor" type="AudioStreamPlayer" unique_id=1219984343]
 stream = ExtResource("1_77kaa")
 script = ExtResource("1_gxd0s")
 
@@ -31,6 +31,4 @@ stream = ExtResource("7_gm7ne")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=710476505]
 
-[connection signal="timer_finished" from="CountDownTimer" to="." method="_on_count_down_timer_timer_finished"]
 [connection signal="timeout" from="CountDownTimer/BeatTimer" to="CountDownTimer" method="_on_beat_timer_timeout"]
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

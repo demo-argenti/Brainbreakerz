@@ -1,4 +1,4 @@
-[gd_scene load_steps=150 format=3 uid="uid://bjfmihqmkj73n"]
+[gd_scene format=3 uid="uid://bjfmihqmkj73n"]
 
 [ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_j1l5c"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="2_hc4ek"]
@@ -603,80 +603,81 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="TutorialLevel" type="Node2D"]
+[node name="TutorialLevel" type="Node2D" unique_id=1873069891]
 process_mode = 1
 script = ExtResource("1_j1l5c")
+level = 1
 
-[node name="KeyListener" parent="." instance=ExtResource("2_hc4ek")]
+[node name="KeyListener" parent="." unique_id=99647676 instance=ExtResource("2_hc4ek")]
 z_index = 1
 position = Vector2(64, 192)
 lane_name = "upper_lane"
 
-[node name="KeyListener2" parent="." instance=ExtResource("2_hc4ek")]
+[node name="KeyListener2" parent="." unique_id=1708112456 instance=ExtResource("2_hc4ek")]
 z_index = 1
 position = Vector2(64, 320)
 lane_name = "middle_lane"
 spawn_beat = 1
 
-[node name="KeyListener3" parent="." instance=ExtResource("2_hc4ek")]
+[node name="KeyListener3" parent="." unique_id=1722679417 instance=ExtResource("2_hc4ek")]
 z_index = 1
 position = Vector2(64, 448)
 lane_name = "lower_lane"
 spawn_beat = 2
 
-[node name="Conductor" parent="." instance=ExtResource("3_0a3fl")]
+[node name="Conductor" parent="." unique_id=177085401 instance=ExtResource("3_0a3fl")]
 stream = ExtResource("4_peh6u")
 chart_name = "res://Song Charts/Raveyard.sm"
 
-[node name="GUI" parent="." instance=ExtResource("5_gdvyt")]
+[node name="GUI" parent="." unique_id=1680204930 instance=ExtResource("5_gdvyt")]
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=640804183]
 z_index = -2
 position = Vector2(358, 325)
 scale = Vector2(0.598944, 0.601677)
 texture = ExtResource("6_ggny1")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2090259329]
 position = Vector2(358, 325)
 
-[node name="Spykez" type="AnimatedSprite2D" parent="."]
+[node name="Spykez" type="AnimatedSprite2D" parent="." unique_id=957730114]
 z_index = 3
 position = Vector2(-101.115, 194.04)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_o6ij6")
 animation = &"Play"
 
-[node name="Crash" type="AnimatedSprite2D" parent="."]
+[node name="Crash" type="AnimatedSprite2D" parent="." unique_id=1004849084]
 z_index = 3
 position = Vector2(-96.99, 322.785)
 scale = Vector2(0.255, 0.255)
 sprite_frames = SubResource("SpriteFrames_qfnhh")
 animation = &"Perfect"
 
-[node name="Grem" type="AnimatedSprite2D" parent="."]
+[node name="Grem" type="AnimatedSprite2D" parent="." unique_id=822310401]
 z_index = 3
 position = Vector2(-70.945, 471.605)
 scale = Vector2(0.175, 0.175)
 sprite_frames = SubResource("SpriteFrames_8kua2")
 animation = &"Play"
 
-[node name="PerfectSplat" type="AudioStreamPlayer" parent="."]
+[node name="PerfectSplat" type="AudioStreamPlayer" parent="." unique_id=1949427881]
 stream = ExtResource("141_7k802")
 
-[node name="HitSplat" type="AudioStreamPlayer" parent="."]
+[node name="HitSplat" type="AudioStreamPlayer" parent="." unique_id=1652835250]
 stream = ExtResource("142_nek6x")
 
-[node name="MissScratch" type="AudioStreamPlayer" parent="."]
+[node name="MissScratch" type="AudioStreamPlayer" parent="." unique_id=499372353]
 stream = ExtResource("143_ljyca")
 
-[node name="Transition" parent="." instance=ExtResource("144_hc4ek")]
+[node name="Transition" parent="." unique_id=2134696059 instance=ExtResource("144_hc4ek")]
 
-[node name="Stage" type="Sprite2D" parent="."]
+[node name="Stage" type="Sprite2D" parent="." unique_id=1289230607]
 z_index = 2
 position = Vector2(359, 325)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("145_0a3fl")
 
-[node name="PauseMenu" parent="." instance=ExtResource("146_peh6u")]
+[node name="PauseMenu" parent="." unique_id=2025884923 instance=ExtResource("146_peh6u")]
 
 [connection signal="finished" from="Conductor" to="." method="_on_conductor_finished"]

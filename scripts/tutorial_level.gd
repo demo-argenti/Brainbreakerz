@@ -7,17 +7,18 @@ extends Node2D
 @onready var Conductor = $Conductor
 
 
+
 var ZombieDie = preload("res://objects/zombie_die.tscn")
 var ZombieFall = preload("res://objects/zombie_fall.tscn")
 
 #Feedback isnt working yet so func's that use it are commented out
 var Feedback = preload("res://objects/Feedback.tscn")
 var ZombieDeath = preload("res://objects/zombie_death.tscn")
-@export_enum("tutorial", "level_1", "level_2", "level_3") var level: int
+@export_enum("tutorial", "level_1", "level_2", "level_3", "bonus_level") var level: int
 
 
 func _ready() -> void:
-	Global.current_level = get_tree().current_scene.scene_file_path
+	Global.current_level = level
 	
 	Global.out_of_lives.connect(_on_out_of_lives)
 	
@@ -153,10 +154,6 @@ func Remove() -> void:
 	ZombieDeath.queue_free()
 
 func _on_conductor_finished() -> void:
-	if (SaveLoad.get_current_level_high_score(level) < Global.level_score):
-		Global.is_high_score = true
-		SaveLoad.save_current_level_high_score(level, Global.level_score)
-	Global.high_score = SaveLoad.get_current_level_high_score(level)
 	#$Transition.fade_out()
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 

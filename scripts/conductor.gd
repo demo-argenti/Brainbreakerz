@@ -69,7 +69,7 @@ func _physics_process(delta: float) -> void:
 		Global.delta_pos.emit(delta_song_pos)
 		
 		if song_position > (last_song_beat + quarter_length):
-			current_song_beat = int(floor(song_position/quarter_length))
+			current_song_beat = int(floor((song_position - start_offset)/quarter_length))
 			Global.song_beat.emit(current_song_beat)
 			
 			current_bar_beat = current_song_beat % 4

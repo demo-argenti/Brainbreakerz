@@ -1,8 +1,6 @@
 class_name SM_Reader
 extends Node
 
-
-
 @export var filename : String
 
 var file : FileAccess

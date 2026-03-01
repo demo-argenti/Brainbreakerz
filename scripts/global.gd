@@ -37,6 +37,8 @@ var high_score : int
 
 enum {PERFECT = 1, GREAT = 2, GOOD = 3, NOT_HIT = 0}
 
+enum {tutorial = 0, level_1 = 1, level_2 = 2, level_3 = 3, bonus_level = 4}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	bar_beat.connect(_on_bar_beat_emmitted)

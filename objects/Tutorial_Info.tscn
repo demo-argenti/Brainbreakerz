@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://mkl187r5mk1d"]
+[gd_scene format=4 uid="uid://mkl187r5mk1d"]
 
 [ext_resource type="Script" uid="uid://1g6eg3fdu8k1" path="res://objects/tutorial_info.gd" id="1_86t0q"]
 [ext_resource type="Texture2D" uid="uid://wx22kaxo3ad5" path="res://T_Slide1.png" id="2_014ao"]
@@ -26,6 +26,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -1065,6 +1074,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -2037,7 +2055,7 @@ LinkButton/font_sizes/font_size = 16
 LinkButton/fonts/font = SubResource("FontFile_w2n0x")
 LinkButton/styles/focus = SubResource("StyleBoxTexture_g28sg")
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=70762292]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -2046,25 +2064,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_86t0q")
 
-[node name="TImage1" type="Sprite2D" parent="."]
+[node name="TImage1" type="Sprite2D" parent="." unique_id=359708719]
 z_index = 1
 position = Vector2(576, 323.5)
 scale = Vector2(0.6, 0.600926)
 texture = ExtResource("2_014ao")
 
-[node name="TImage2" type="Sprite2D" parent="."]
+[node name="TImage2" type="Sprite2D" parent="." unique_id=2103867827]
 visible = false
 position = Vector2(576, 323)
 scale = Vector2(0.6, 0.601852)
 texture = ExtResource("3_fxn7d")
 
-[node name="TImage3" type="Sprite2D" parent="."]
+[node name="TImage3" type="Sprite2D" parent="." unique_id=977543767]
 visible = false
 position = Vector2(575.5, 323.5)
 scale = Vector2(0.600521, 0.600926)
 texture = ExtResource("4_hraly")
 
-[node name="Slide_1_Button" type="Button" parent="."]
+[node name="Slide_1_Button" type="Button" parent="." unique_id=1586763930]
 z_index = 1
 material = SubResource("CanvasItemMaterial_xv2yv")
 custom_minimum_size = Vector2(10, 10)
@@ -2077,7 +2095,7 @@ scale = Vector2(-0.096, 0.091)
 icon = ExtResource("5_y26u6")
 flat = true
 
-[node name="Slide_2_Back_Button" type="Button" parent="."]
+[node name="Slide_2_Back_Button" type="Button" parent="." unique_id=1761641250]
 visible = false
 z_index = 1
 material = SubResource("CanvasItemMaterial_xv2yv")
@@ -2091,7 +2109,7 @@ scale = Vector2(0.096, 0.091)
 icon = ExtResource("5_y26u6")
 flat = true
 
-[node name="Slide_2_Forward_Button" type="Button" parent="."]
+[node name="Slide_2_Forward_Button" type="Button" parent="." unique_id=1710934072]
 visible = false
 z_index = 1
 material = SubResource("CanvasItemMaterial_xv2yv")
@@ -2105,7 +2123,7 @@ scale = Vector2(-0.096, 0.091)
 icon = ExtResource("5_y26u6")
 flat = true
 
-[node name="Slide_3_Back_Button" type="Button" parent="."]
+[node name="Slide_3_Back_Button" type="Button" parent="." unique_id=1491516125]
 visible = false
 z_index = 1
 material = SubResource("CanvasItemMaterial_xv2yv")
@@ -2119,7 +2137,7 @@ scale = Vector2(0.096, 0.091)
 icon = ExtResource("5_y26u6")
 flat = true
 
-[node name="Play" type="Button" parent="."]
+[node name="Play" type="Button" parent="." unique_id=1562291540]
 visible = false
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 0
@@ -2132,7 +2150,7 @@ theme_override_fonts/font = ExtResource("8_tjsii")
 theme_override_font_sizes/font_size = 20
 text = "Play"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=986775234]
 stream = ExtResource("9_tl1uc")
 
 [connection signal="pressed" from="Slide_1_Button" to="." method="_on_slide_1_button_pressed"]

@@ -3,6 +3,8 @@ extends CanvasLayer
 signal on_fade_out_finished
 var scene
 
+@export var level := "Empty"
+
 func _ready() -> void:
 	scene = null
 	hide()

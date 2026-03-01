@@ -27,7 +27,7 @@ boot_splash/minimum_display_time=500
 [autoload]
 
 Global="*res://scripts/global.gd"
-SaveLoad="*res://scripts/SaveLoad.gd"
+SaveLoad="res://scripts/SaveLoad.gd"
 Transition="*res://objects/transition.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
