@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo63wgdq65v4k"]
+[gd_scene format=3 uid="uid://bo63wgdq65v4k"]
 
 [ext_resource type="Script" uid="uid://4uu4doxt1vv6" path="res://objects/feedback.gd" id="1_ih1jw"]
 [ext_resource type="Texture2D" uid="uid://dxou7tc3ft6hc" path="res://BRNBRKZ-DAMN.png" id="2_eux5m"]
@@ -126,35 +126,33 @@ _data = {
 &"RESET": SubResource("Animation_1an8m")
 }
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=524111976]
 script = ExtResource("1_ih1jw")
 
-[node name="Miss" type="Sprite2D" parent="."]
+[node name="Miss" type="Sprite2D" parent="." unique_id=1908233654]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_eux5m")
 
-[node name="Good" type="Sprite2D" parent="."]
+[node name="Good" type="Sprite2D" parent="." unique_id=1708970156]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_67sin")
 
-[node name="Great" type="Sprite2D" parent="."]
+[node name="Great" type="Sprite2D" parent="." unique_id=593129074]
 modulate = Color(1, 1, 1, 0)
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("4_d4vce")
 
-[node name="Perfect" type="Sprite2D" parent="."]
+[node name="Perfect" type="Sprite2D" parent="." unique_id=1857855621]
 z_index = 2
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("5_peueh")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_r2vu7")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=413300641]
+libraries/ = SubResource("AnimationLibrary_r2vu7")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

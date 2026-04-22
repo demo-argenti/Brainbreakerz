@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://ba1jmlgm4bu2l"]
+[gd_scene format=3 uid="uid://ba1jmlgm4bu2l"]
 
 [ext_resource type="Script" uid="uid://bpjxha885kdgw" path="res://objects/transition.gd" id="1_00tjl"]
 [ext_resource type="Texture2D" uid="uid://dut5k155fa75o" path="res://assets/Transition.png" id="2_3askl"]
@@ -93,31 +93,29 @@ _data = {
 &"fade_out": SubResource("Animation_ng2a1")
 }
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1045907458]
 script = ExtResource("1_00tjl")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1152179402]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer" unique_id=2115924155]
 layout_mode = 2
 
-[node name="transition" type="Control" parent="MarginContainer/CenterContainer"]
+[node name="transition" type="Control" parent="MarginContainer/CenterContainer" unique_id=1453612715]
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/transition"]
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/CenterContainer/transition" unique_id=682747232]
 modulate = Color(1, 1, 1, 0)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("2_3askl")
 hframes = 6
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_fuct5")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1733813216]
+libraries/ = SubResource("AnimationLibrary_fuct5")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

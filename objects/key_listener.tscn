@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bjwae1exvwy6f"]
+[gd_scene format=3 uid="uid://bjwae1exvwy6f"]
 
 [ext_resource type="Texture2D" uid="uid://djfev0i75s1xu" path="res://6ecf2vak.bmp" id="1_k58xy"]
 [ext_resource type="Script" uid="uid://c6awssil4456m" path="res://scripts/key_listener.gd" id="2_waqgl"]
@@ -128,19 +128,19 @@ _data = {
 &"perfect_fade": SubResource("Animation_qvsin")
 }
 
-[node name="KeyListener" type="Node2D"]
+[node name="KeyListener" type="Node2D" unique_id=2128974961]
 script = ExtResource("2_waqgl")
 
-[node name="Arrow" type="Sprite2D" parent="."]
+[node name="Arrow" type="Sprite2D" parent="." unique_id=1460819739]
 texture = ExtResource("1_k58xy")
 hframes = 4
 vframes = 3
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="." unique_id=1213664438]
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("3_5o700")
 
-[node name="Perfect" type="RichTextLabel" parent="."]
+[node name="Perfect" type="RichTextLabel" parent="." unique_id=1206916291]
 visible = false
 offset_left = 48.0
 offset_top = -16.0
@@ -148,29 +148,27 @@ offset_right = 160.0
 offset_bottom = 24.0
 text = "Perfect!"
 
-[node name="Great" type="RichTextLabel" parent="."]
+[node name="Great" type="RichTextLabel" parent="." unique_id=1182149698]
 offset_left = 48.0
 offset_top = -16.0
 offset_right = 160.0
 offset_bottom = 24.0
 text = "Great!"
 
-[node name="Good" type="RichTextLabel" parent="."]
+[node name="Good" type="RichTextLabel" parent="." unique_id=969592526]
 offset_left = 48.0
 offset_top = -16.0
 offset_right = 160.0
 offset_bottom = 24.0
 text = "Good!"
 
-[node name="Miss" type="RichTextLabel" parent="."]
+[node name="Miss" type="RichTextLabel" parent="." unique_id=534678190]
 offset_left = 48.0
 offset_top = -16.0
 offset_right = 160.0
 offset_bottom = 24.0
 text = "Miss!"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=371624537]
 root_node = NodePath("../Perfect")
-libraries = {
-&"": SubResource("AnimationLibrary_twja2")
-}
+libraries/ = SubResource("AnimationLibrary_twja2")
