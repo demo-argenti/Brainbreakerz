@@ -1,5 +1,6 @@
 class_name SM_Reader
-extends Node
+extends Object
+
 
 @export var filename : String
 
@@ -15,15 +16,15 @@ var offset : float
 var bpms : Array
 var charts : Array
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+func _ready() -> void: pass
 
+# for builtin charts -- user charts path will need to be accessed differently
+const CHARTS_PATH := "res://Song Charts/"
 func set_file() -> void:
-	file = FileAccess.open(filename, FileAccess.READ)
-	if file == null:
+	file = FileAccess.open(CHARTS_PATH + filename + ".sm", FileAccess.READ)
+	if FileAccess.get_open_error() != OK:
 		var error_str: String = error_string(FileAccess.get_open_error())
-		push_warning("Couldn't open file because: %s" % error_str)
+		push_warning("Couldn't open file %s because: %s" % [ filename, error_str ])
 
 
 func read_file() -> void:
@@ -43,12 +44,12 @@ func read_file() -> void:
 	
 	var current_line : int = 0
 	
-	var bar_holder : String
+	var bar_holder := ""
 	
 	var chart_name_holder : String
 	var notes_holder : Array
 
-	
+
 	while file.get_position() < file.get_length():
 		line = file.get_line()
 		
@@ -116,14 +117,11 @@ func read_file() -> void:
 						"#OFFSET:":
 							offset = string_holder.to_float()
 		else:
-			if line.begins_with("//"):
-				continue
-				
+			if line.begins_with("//"): continue
 			if current_line < 5:
 				line = line.dedent()
 				if _is_challenge_level(line):
-					line.erase(line.find(":"))
-					chart_name_holder = line
+					chart_name_holder = line.erase(line.find(":"))
 				current_line += 1
 			else:
 				if !line.begins_with(",") and !line.begins_with(";"):
@@ -137,32 +135,25 @@ func read_file() -> void:
 						is_searching_for_notes = false
 						is_searching_for_var_name = true
 						charts.push_back(_parse_note_inputs(chart_name_holder, notes_holder))
-					
-				
-# determines whether str is a valid challenge level
-func _is_challenge_level(str : String) -> bool:
-	if str == "Beginner:" or str == "Easy:" or str == "Medium:" or str == "Hard:" or str == "Challenge:" or str == "Edit:":
-		return true
-	return false
-	
-# returns a dictionary containing the difficulty of the chart, and arrays holding the notes for each track	
+
+# determines whether `s` is a valid challenge level
+func _is_challenge_level(s:String) -> bool:
+	return (s in [ "Beginner:", "Easy:", "Medium:", "Hard:", "Challenge:", "Edit:" ])
+
+# returns a dictionary containing the difficulty of the chart, and arrays holding the notes for each track
 func _parse_note_inputs(chart_name : String, notes_holder : Array) -> Dictionary:
 	var track_1 : Array
 	var track_2 : Array
 	var track_3 : Array
 	
-	# this is how the current bar is subdivided (4 quarters, 8 eitgthths, 16 sixteenths, etc.)
+	# this is how the current bar is subdivided (4 quarters, 8 eighths, 16 sixteenths, etc.)
 	var bar_subdivision : float
-	
 	# this is the length of the smallest subdivision in a given bar in beats
 	var bar_note_length : float
-	
 	# this holds a reference to the current track the parser is on so it can store values there
 	var current_track : Array
-	
 	# counts how many beats we encountered in the previous loops
 	var beat_running_total : float = 0.0
-	
 	
 	for bar in notes_holder:
 		bar_subdivision = bar.length() / 4.0
@@ -173,24 +164,18 @@ func _parse_note_inputs(chart_name : String, notes_holder : Array) -> Dictionary
 			var note = (i / 4)
 			
 			match track:
-				0:
-					current_track = track_1
-				1:
-					continue
-				2:
-					current_track = track_2
-				3:
-					current_track = track_3
+				0: current_track = track_1
+				1: continue # this is down in SM
+				2: current_track = track_2
+				3: current_track = track_3
 			
 			match bar[i].to_int():
-				0:
-					continue
-				1:
-					current_track.push_back({"is_held_note" : false, "landing_beat" : (note * bar_note_length) + beat_running_total})
-				2:
-					current_track.push_back({"is_held_note" : true, "landing_beat" : (note * bar_note_length) + beat_running_total})
-				3:
-					current_track.back()["ending_beat"] = (note * bar_note_length) + beat_running_total
+				0: continue
+				1: current_track.push_back({"is_held_note" : false,
+						"landing_beat" : (note * bar_note_length) + beat_running_total})
+				2: current_track.push_back({"is_held_note" : true,
+						"landing_beat" : (note * bar_note_length) + beat_running_total})
+				3:current_track.back()["ending_beat"] = (note * bar_note_length) + beat_running_total
 		
 		beat_running_total += 4.0
 	

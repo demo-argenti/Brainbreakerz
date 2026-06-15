@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dum2jinj0efs2" path="res://scripts/main_menu.gd" id="1_m625n"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_66ak0"]
 [ext_resource type="Texture2D" uid="uid://c6lgnmr8aqf3b" path="res://Link_Button.png" id="3_g28sg"]
-[ext_resource type="AudioStream" uid="uid://bp0u4wk5whh88" path="res://sounds/music/Mus_BBRKZTitle.mp3" id="3_gtid3"]
 [ext_resource type="FontFile" uid="uid://cybuyfk5r8ceq" path="res://assets/junkos typewriter.ttf" id="4_tb1dm"]
 [ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="5_7a1jj"]
 [ext_resource type="Texture2D" uid="uid://bor7fak7iyhml" path="res://GREMBUGREPORT.png" id="6_q6f42"]
@@ -2057,13 +2056,20 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -9.0
-offset_top = -13.0
-offset_right = -9.0
-offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m625n")
+
+[node name="BG" type="TextureRect" parent="." unique_id=782269677]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_7a1jj")
+expand_mode = 1
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=573889750]
 custom_minimum_size = Vector2(100, 100)
@@ -2071,7 +2077,7 @@ layout_mode = 0
 offset_left = 438.0
 offset_top = 369.0
 offset_right = 738.0
-offset_bottom = 669.0
+offset_bottom = 635.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=247791886]
 z_index = 1
@@ -2119,23 +2125,33 @@ theme_override_fonts/font = ExtResource("4_tb1dm")
 theme_override_font_sizes/font_size = 20
 text = "Peace out!"
 
-[node name="BG" type="Sprite2D" parent="." unique_id=283478785]
-position = Vector2(582, 332.5)
-scale = Vector2(0.605208, 0.615741)
-texture = ExtResource("5_7a1jj")
-
 [node name="Grembugreport" type="Sprite2D" parent="." unique_id=1182755459]
 position = Vector2(804, 506)
 scale = Vector2(0.141667, 0.111111)
 texture = ExtResource("6_q6f42")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2089635334]
-stream = ExtResource("3_gtid3")
-
 [node name="Logo" type="Sprite2D" parent="." unique_id=1157153860]
 position = Vector2(576, 190)
 scale = Vector2(0.462687, 0.42586)
 texture = ExtResource("8_ljg04")
+
+[node name="Label" type="Label" parent="." unique_id=1464693582]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = 55.0
+offset_right = -153.0
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Press 'O'
+for Options :)"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Tutorial_Button" to="." method="_on_tutorial_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Song_Select_Button" to="." method="_on_play_demo_button_pressed"]

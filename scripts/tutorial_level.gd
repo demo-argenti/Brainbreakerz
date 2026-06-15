@@ -4,9 +4,6 @@ extends Node2D
 @onready var Crash = $Crash
 @onready var Grem = $Grem
 
-@onready var Conductor = $Conductor
-
-
 
 var ZombieDie = preload("res://objects/zombie_die.tscn")
 var ZombieFall = preload("res://objects/zombie_fall.tscn")
@@ -15,18 +12,18 @@ var ZombieFall = preload("res://objects/zombie_fall.tscn")
 var Feedback = preload("res://objects/Feedback.tscn")
 var ZombieDeath = preload("res://objects/zombie_death.tscn")
 @export_enum("tutorial", "level_1", "level_2", "level_3", "bonus_level") var level: int
-
+@export var chart_name: String # just for now!
 
 func _ready() -> void:
+	assert(false,"why are you here??")
 	Global.current_level = level
 	
 	Global.out_of_lives.connect(_on_out_of_lives)
 	
-
 	$KeyListener.connect("Hit", SpykezZombieDie)
 	$KeyListener2.connect("Hit", CrashZombieDie)
 	$KeyListener3.connect("Hit", GremZombieDie)
-	ZombieDeath.connect("Done", Remove)
+	#ZombieDeath.connect("Done", Remove)
 	Global.is_high_score = false
 	Global.high_score = 0
 	
@@ -44,17 +41,16 @@ func _ready() -> void:
 	$KeyListener.connect("MissHit", SpykezMiss)
 	
 	$KeyListener2.connect("PerfectHit", CrashPerfect)
-	$KeyListener2.connect("GoodHit", CrashGreat)
-	$KeyListener2.connect("MissHit", CrashGood)
+	$KeyListener2.connect("GreatHit", CrashGreat)
+	$KeyListener2.connect("GoodHit", CrashGood)
 	$KeyListener2.connect("MissHit", CrashMiss)
 	
 	$KeyListener3.connect("PerfectHit", GremPerfect)
-	$KeyListener3.connect("GoodHit", GremGreat)
-	$KeyListener3.connect("MissHit", GremGood)
+	$KeyListener3.connect("GreatHit", GremGreat)
+	$KeyListener3.connect("GoodHit", GremGood)
 	$KeyListener3.connect("MissHit", GremMiss)
 	
 	Conductor.count_in()
-
 	#$Transition.fade_in()
 
 func SpykezPerfect() -> void:
@@ -82,6 +78,7 @@ func SpykezMiss() -> void:
 func SpykezDone() -> void:
 	Spykez.play("Play")
 
+
 func CrashPerfect() -> void:
 	Crash.play("Perfect")
 	#var instance = Feedback.instantiate()
@@ -106,7 +103,8 @@ func CrashMiss() -> void:
 	$MissScratch.play()
 func CrashDone() -> void:
 	Crash.play("Play")
-	
+
+
 func GremPerfect() -> void:
 	Grem.play("Perfect")
 	#var instance = ZombieDeath.instantiate()
@@ -132,6 +130,7 @@ func GremMiss() -> void:
 func GremDone() -> void:
 	Grem.play("Play")
 
+
 func SpykezZombieDie() -> void:
 	var instance = ZombieDeath.instantiate()
 	add_child(instance)
@@ -150,12 +149,14 @@ func GremZombieDie() -> void:
 	instance.position = Vector2(50, 490)
 	$HitSplat.play()
 
-func Remove() -> void:
-	ZombieDeath.queue_free()
+
+func Remove() -> void: ZombieDeath.queue_free()
+
 
 func _on_conductor_finished() -> void:
-	#$Transition.fade_out()
 	get_tree().change_scene_to_file("res://objects/victory_screen.tscn")
 
+
 func _on_out_of_lives() -> void:
+	Conductor.stop()
 	get_tree().change_scene_to_file("res://objects/loss_screen.tscn")

@@ -1,0 +1,121 @@
+[gd_resource type="Resource" script_class="SongDef" format=3 uid="uid://qhomvsxd0ehn"]
+
+[ext_resource type="Script" uid="uid://cvwmqdt0do6st" path="res://chartdef.gd" id="1_reuvl"]
+[ext_resource type="Script" uid="uid://b5mn4ri7v1kl0" path="res://songdef.gd" id="2_hkvno"]
+
+[sub_resource type="Resource" id="Resource_reuvl"]
+script = ExtResource("1_reuvl")
+difficulty = "Calibration"
+notes = {
+"track_1": [],
+"track_2": [{
+"is_held_note": false,
+"landing_beat": 0.0
+}, {
+"is_held_note": false,
+"landing_beat": 1.0
+}, {
+"is_held_note": false,
+"landing_beat": 2.0
+}, {
+"is_held_note": false,
+"landing_beat": 3.0
+}, {
+"is_held_note": false,
+"landing_beat": 4.0
+}, {
+"is_held_note": false,
+"landing_beat": 5.0
+}, {
+"is_held_note": false,
+"landing_beat": 6.0
+}, {
+"is_held_note": false,
+"landing_beat": 7.0
+}, {
+"is_held_note": false,
+"landing_beat": 8.0
+}, {
+"is_held_note": false,
+"landing_beat": 9.0
+}, {
+"is_held_note": false,
+"landing_beat": 10.0
+}, {
+"is_held_note": false,
+"landing_beat": 11.0
+}, {
+"is_held_note": false,
+"landing_beat": 12.0
+}, {
+"is_held_note": false,
+"landing_beat": 13.0
+}, {
+"is_held_note": false,
+"landing_beat": 14.0
+}, {
+"is_held_note": false,
+"landing_beat": 15.0
+}, {
+"is_held_note": false,
+"landing_beat": 16.0
+}, {
+"is_held_note": false,
+"landing_beat": 17.0
+}, {
+"is_held_note": false,
+"landing_beat": 18.0
+}, {
+"is_held_note": false,
+"landing_beat": 19.0
+}, {
+"is_held_note": false,
+"landing_beat": 20.0
+}, {
+"is_held_note": false,
+"landing_beat": 21.0
+}, {
+"is_held_note": false,
+"landing_beat": 22.0
+}, {
+"is_held_note": false,
+"landing_beat": 23.0
+}, {
+"is_held_note": false,
+"landing_beat": 24.0
+}, {
+"is_held_note": false,
+"landing_beat": 25.0
+}, {
+"is_held_note": false,
+"landing_beat": 26.0
+}, {
+"is_held_note": false,
+"landing_beat": 27.0
+}, {
+"is_held_note": false,
+"landing_beat": 28.0
+}, {
+"is_held_note": false,
+"landing_beat": 29.0
+}, {
+"is_held_note": false,
+"landing_beat": 30.0
+}, {
+"is_held_note": false,
+"landing_beat": 31.0
+}],
+"track_3": []
+}
+
+[resource]
+script = ExtResource("2_hkvno")
+song_title = "Calibration Track"
+audio_file = "uid://bupucocdjb7sx"
+first_beat_offset = 2.0
+charts = Array[ExtResource("1_reuvl")]([SubResource("Resource_reuvl")])
+events = Dictionary[String, String]({
+"after": "res://test_postsong_timeline.dtl",
+"before": "res://test_presong_timeline.dtl"
+})
+metadata/_custom_type_script = "uid://b5mn4ri7v1kl0"

@@ -1,8 +1,8 @@
-[gd_scene load_steps=149 format=3 uid="uid://2qa6nn35lhp1"]
+[gd_scene format=3 uid="uid://2qa6nn35lhp1"]
 
 [ext_resource type="Script" uid="uid://demqaidol2qpc" path="res://scripts/tutorial_level.gd" id="1_c88h3"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="2_ee87j"]
-[ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor.tscn" id="3_w4a21"]
+[ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor_old.tscn" id="3_w4a21"]
 [ext_resource type="PackedScene" uid="uid://clim1iox8cjuw" path="res://objects/gui.tscn" id="4_bymm6"]
 [ext_resource type="Texture2D" uid="uid://dvni8ey8nsqpl" path="res://Play_Background.png" id="5_cd80c"]
 [ext_resource type="Texture2D" uid="uid://dd4p2ewms0vam" path="res://Animations/ANIM_SFlub/ANIM_SFlub0001.png" id="6_v6ocq"]
@@ -145,6 +145,7 @@
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="143_58ien"]
 [ext_resource type="Texture2D" uid="uid://gr4onrak7aoa" path="res://Stage.png" id="144_tnova"]
 [ext_resource type="PackedScene" uid="uid://dg5dtlqeomcxx" path="res://objects/pause_menu.tscn" id="145_q374u"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{

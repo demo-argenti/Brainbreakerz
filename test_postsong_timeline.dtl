@@ -1,0 +1,6 @@
+[style name="test_style"]
+set {scratch_text} = "Your latency is" + Dialogic.VAR.latency + ". You can adjust this manually in settings now. (not yet actually implemented lol)"
+if true == false:
+	# TBD if there is a better way to do this
+	set {scratch_text} = Dialogic.VAR.scratch_text + "\n\nhey you're pretty consistent!"
+[lspeed=0]Your latency is {latency}. You can adjust this manually in settings now. (not yet actually implemented lol)

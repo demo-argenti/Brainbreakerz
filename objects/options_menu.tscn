@@ -1,0 +1,168 @@
+[gd_scene format=3 uid="uid://c2xrnniudtkvy"]
+
+[ext_resource type="Script" uid="uid://b6piq05n4a5tm" path="res://objects/options_menu.gd" id="1_e6tdc"]
+[ext_resource type="Theme" uid="uid://dl0odf3ehkorx" path="res://menu_theme.tres" id="1_x8rtp"]
+[ext_resource type="Texture2D" uid="uid://du5kt7g81bq76" path="res://BG.png" id="3_ln715"]
+[ext_resource type="Texture2D" uid="uid://bp4dldato0po7" path="res://backbutton.png" id="4_0kjhg"]
+[ext_resource type="PackedScene" uid="uid://df6t5uqky26kn" path="res://objects/vol_slider.tscn" id="5_kja5y"]
+
+[sub_resource type="Gradient" id="Gradient_0kjhg"]
+offsets = PackedFloat32Array(0, 0.99649125)
+colors = PackedColorArray(0.31, 0.061999995, 0.09506663, 0.1882353, 0.13, 0.025999997, 0.13, 0.1882353)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_kja5y"]
+gradient = SubResource("Gradient_0kjhg")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8rtp"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Gradient" id="Gradient_ln715"]
+interpolation_color_space = 2
+colors = PackedColorArray(0.9411765, 0.1254902, 0.09411765, 1, 0.5882353, 0.0627451, 0.15686275, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0kjhg"]
+gradient = SubResource("Gradient_ln715")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kja5y"]
+content_margin_left = 16.0
+content_margin_top = 16.0
+content_margin_right = 16.0
+content_margin_bottom = 16.0
+texture = SubResource("GradientTexture2D_0kjhg")
+
+[node name="OptionsMenu" type="Control" unique_id=765135807]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_x8rtp")
+script = ExtResource("1_e6tdc")
+
+[node name="Bg" type="TextureRect" parent="." unique_id=1693074217]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ln715")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BackButton" type="TextureButton" parent="." unique_id=1339574815]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 32.0
+offset_right = -40.0
+offset_bottom = 160.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_0kjhg")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1394211744]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CalibrateButton" type="Button" parent="VBoxContainer" unique_id=1465756530]
+layout_mode = 2
+text = "Calibrate"
+
+[node name="KeybindsButton" type="Button" parent="VBoxContainer" unique_id=1358689728]
+layout_mode = 2
+disabled = true
+text = "Controls"
+
+[node name="VolumeButton" type="Button" parent="VBoxContainer" unique_id=2129519907]
+layout_mode = 2
+text = "Volume"
+
+[node name="Dimmer" type="TextureRect" parent="." unique_id=2038446827]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_kja5y")
+
+[node name="VolumeDialog" type="PanelContainer" parent="Dimmer" unique_id=940033530]
+clip_children = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -145.5
+offset_right = 272.0
+offset_bottom = 145.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x8rtp")
+
+[node name="VolumeDialogBG" type="PanelContainer" parent="Dimmer/VolumeDialog" unique_id=556367481]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_kja5y")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dimmer/VolumeDialog/VolumeDialogBG" unique_id=103582821]
+layout_mode = 2
+
+[node name="Header" type="Label" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=1447465444]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Volume Control"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=1765384847]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+
+[node name="VolSlider" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=414853756 instance=ExtResource("5_kja5y")]
+layout_mode = 2
+bus_name = "Master"
+
+[node name="VolSlider2" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=1262017156 instance=ExtResource("5_kja5y")]
+layout_mode = 2
+bus_name = "Music"
+
+[node name="VolSlider3" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=1362031773 instance=ExtResource("5_kja5y")]
+layout_mode = 2
+bus_name = "SFX"
+
+[node name="VolSlider4" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=662959320 instance=ExtResource("5_kja5y")]
+layout_mode = 2
+bus_name = "Hitsounds"
+
+[node name="VolBackButton" type="Button" parent="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer" unique_id=608386990]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 20
+text = "Done"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CalibrateButton" to="." method="_on_calibrate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VolumeButton" to="." method="_on_volume_button_pressed"]
+[connection signal="pressed" from="Dimmer/VolumeDialog/VolumeDialogBG/VBoxContainer/VolBackButton" to="." method="_on_vol_back_button_pressed"]

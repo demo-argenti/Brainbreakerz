@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bpkcagiqv86gv"]
+
+[ext_resource type="Theme" uid="uid://dl0odf3ehkorx" path="res://menu_theme.tres" id="1_xk8fi"]
+[ext_resource type="FontFile" uid="uid://cybuyfk5r8ceq" path="res://assets/junkos typewriter.ttf" id="2_ytexv"]
+[ext_resource type="Script" uid="uid://ci5qhkku3uu5f" path="res://objects/song_select_button.gd" id="3_y5hqa"]
+[ext_resource type="Resource" uid="uid://qhomvsxd0ehn" path="res://Song Charts/other/calibration.tres" id="4_kcyiu"]
+
+[node name="Button" type="Button" unique_id=344535504]
+offset_right = 300.0
+offset_bottom = 50.0
+theme = ExtResource("1_xk8fi")
+theme_override_fonts/font = ExtResource("2_ytexv")
+theme_override_font_sizes/font_size = 16
+text = ":3"
+script = ExtResource("3_y5hqa")
+song = ExtResource("4_kcyiu")

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dg5dtlqeomcxx"]
+[gd_scene format=3 uid="uid://dg5dtlqeomcxx"]
 
 [ext_resource type="Script" uid="uid://5ms715exjarm" path="res://Levels/pause_menu.gd" id="1_aktha"]
 
-[node name="PauseMenu" type="TextureRect"]
+[node name="PauseMenu" type="TextureRect" unique_id=366405596]
 process_mode = 3
 offset_right = 40.0
 offset_bottom = 40.0

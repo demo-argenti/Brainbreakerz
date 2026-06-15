@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://du4nqyeckbhqi"]
+
+[ext_resource type="Script" uid="uid://bime0cwtw0yvo" path="res://debug_overlay.gd" id="1_xatw3"]
+
+[sub_resource type="SystemFont" id="SystemFont_xatw3"]
+font_names = PackedStringArray("Atkinson Hyperlegible Mono", "Courier New", "Lucida Console", "Linux Libertine", "", "", "")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybakp"]
+font = SubResource("SystemFont_xatw3")
+font_size = 30
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DebugOverlay" type="Control" unique_id=1648099066]
+z_index = 10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_xatw3")
+
+[node name="FPSLabel" type="Label" parent="." unique_id=371256536]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -56.0
+offset_top = 16.0
+offset_right = -16.0
+offset_bottom = 35.0
+grow_horizontal = 0
+text = "FPS"
+label_settings = SubResource("LabelSettings_ybakp")
+horizontal_alignment = 2
+
+[node name="CurrentSongLabel" type="Label" parent="." unique_id=2119545485]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 73.0
+offset_bottom = 48.0
+text = "bla"
+label_settings = SubResource("LabelSettings_ybakp")
+
+[node name="SongPosLabel" type="Label" parent="." unique_id=1802707148]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = 8.0
+offset_right = 41.0
+offset_bottom = 43.0
+grow_horizontal = 2
+text = "_____"
+label_settings = SubResource("LabelSettings_ybakp")
+horizontal_alignment = 2

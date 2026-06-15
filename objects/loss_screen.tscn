@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=4 uid="uid://1bxr4nqgrfrb"]
+[gd_scene format=4 uid="uid://1bxr4nqgrfrb"]
 
 [ext_resource type="Script" uid="uid://bhsciu1eer3g" path="res://objects/loss_screen.gd" id="1_po4is"]
 [ext_resource type="Texture2D" uid="uid://b0ujm82psu7gb" path="res://SPR_UiButton.png" id="2_0jamp"]
@@ -23,6 +23,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -1062,6 +1071,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -2048,6 +2066,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -3087,6 +3114,15 @@ data = PackedByteArray("d09GMgABAAAAALU4ABEAAAABjRQAALTXAAEAAAAAAAAAAAAAAAAAAAAA
 font_name = "Open Sans SemiBold"
 style_name = "SemiBold"
 font_weight = 600
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
 cache/0/16/0/ascent = 18.0
 cache/0/16/0/descent = 5.0
 cache/0/16/0/underline_position = 1.60938
@@ -4059,7 +4095,7 @@ LinkButton/font_sizes/font_size = 16
 LinkButton/fonts/font = SubResource("FontFile_5iomg")
 LinkButton/styles/focus = SubResource("StyleBoxTexture_eqouo")
 
-[node name="loss_screen" type="Control"]
+[node name="loss_screen" type="Control" unique_id=1204453300]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -4069,9 +4105,9 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_po4is")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1266443367]
 
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1483822445]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -4084,7 +4120,7 @@ text = "YOU LOSE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1879858326]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -4098,7 +4134,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 8
 
-[node name="Retry" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Retry" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=89205352]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_t0sut")
@@ -4106,7 +4142,7 @@ theme_override_fonts/font = ExtResource("4_pm0w1")
 theme_override_font_sizes/font_size = 20
 text = "TRy Again"
 
-[node name="MainMenu_Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="MainMenu_Button" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=882936984]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 theme = SubResource("Theme_uow6s")
@@ -4114,22 +4150,22 @@ theme_override_fonts/font = ExtResource("4_pm0w1")
 theme_override_font_sizes/font_size = 20
 text = "Main Menu"
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1322940306]
 z_index = -2
 position = Vector2(577, 324.5)
 scale = Vector2(0.6, 0.599074)
 texture = ExtResource("2_hm56g")
 
-[node name="BG_Art" type="Sprite2D" parent="."]
+[node name="BG_Art" type="Sprite2D" parent="." unique_id=1909357918]
 z_index = -1
 position = Vector2(576.5, 325.5)
 scale = Vector2(0.599479, 0.600926)
 texture = ExtResource("3_edw34")
 
-[node name="Start" type="AudioStreamPlayer2D" parent="."]
+[node name="Start" type="AudioStreamPlayer" parent="." unique_id=1868356300]
 stream = ExtResource("4_gb43a")
 
-[node name="Loop" type="AudioStreamPlayer" parent="."]
+[node name="Loop" type="AudioStreamPlayer" parent="." unique_id=1714049721]
 stream = ExtResource("5_8xmm4")
 
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
