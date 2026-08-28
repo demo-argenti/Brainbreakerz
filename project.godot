@@ -39,10 +39,11 @@ Conductor="*uid://b5b2yr2im4ojy"
 [dialogic]
 
 directories/dch_directory={
-"test_character": "res://test_character.dch"
+"character 1": "res://VN Characters/character 1.dch"
 }
 directories/dtl_directory={
 "Test Timeline": "res://Test Timeline.dtl",
+"Test VN Scene": "res://Test VN Scene.dtl",
 "test_postsong_timeline": "res://test_postsong_timeline.dtl",
 "test_presong_timeline": "res://test_presong_timeline.dtl"
 }
