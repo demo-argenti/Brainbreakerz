@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bpjxha885kdgw" path="res://objects/transition.gd" id="1_qcm8m"]
 [ext_resource type="PackedScene" uid="uid://bjwae1exvwy6f" path="res://objects/key_listener.tscn" id="1_ywn4t"]
-[ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor.tscn" id="2_kktrg"]
+[ext_resource type="PackedScene" uid="uid://3528rt5yqpcc" path="res://objects/conductor_old.tscn" id="2_kktrg"]
 [ext_resource type="PackedScene" uid="uid://clim1iox8cjuw" path="res://objects/gui.tscn" id="4_ff2rx"]
 [ext_resource type="Texture2D" uid="uid://dvni8ey8nsqpl" path="res://Play_Background.png" id="5_8xf1l"]
 [ext_resource type="Texture2D" uid="uid://dd4p2ewms0vam" path="res://Animations/ANIM_SFlub/ANIM_SFlub0001.png" id="6_5w63e"]
@@ -144,6 +144,7 @@
 [ext_resource type="AudioStream" uid="uid://e756544u4goe" path="res://sounds/music/SFX_Whoops!.mp3" id="142_y3iv2"]
 [ext_resource type="PackedScene" uid="uid://ba1jmlgm4bu2l" path="res://objects/transition.tscn" id="143_mq3ry"]
 [ext_resource type="PackedScene" uid="uid://dg5dtlqeomcxx" path="res://objects/pause_menu.tscn" id="144_y3iv2"]
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6ij6"]
 animations = [{

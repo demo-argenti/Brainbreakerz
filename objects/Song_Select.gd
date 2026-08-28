@@ -1,6 +1,6 @@
 extends Control
 
-const level_folder_parth = "res://Levels/"
+const level_folder_path = "res://Levels/"
 
 @onready var v_box_container: VBoxContainer = $ScrollContainer/MarginContainer/VBoxContainer
 
@@ -9,7 +9,7 @@ func _ready() -> void:
 	fill_levels()
 
 func fill_levels() -> void:
-	var level_paths = DirAccess.get_files_at(level_folder_parth)
+	var level_paths = DirAccess.get_files_at(level_folder_path)
 	print(level_paths)
 	for level_path in level_paths:
 		var button = Button.new()
@@ -19,17 +19,14 @@ func fill_levels() -> void:
 
 		
 		button.pressed.connect(func():
-			
-			Transition.transition(level_folder_parth + level_path)
+			Transition.transition(level_folder_path + level_path)
 			)
 
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+
 func _process(delta: float) -> void:
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
-	pass
+	if $AudioStreamPlayer.playing == false: $AudioStreamPlayer.play()
 
 
 func _on_back_button_pressed() -> void:

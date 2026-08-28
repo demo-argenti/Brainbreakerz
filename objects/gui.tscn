@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://clim1iox8cjuw"]
+[gd_scene format=3 uid="uid://clim1iox8cjuw"]
 
 [ext_resource type="Script" uid="uid://chdn7b6tc7klx" path="res://scripts/gui.gd" id="1_cpeuy"]
 
-[node name="GUI" type="Control"]
+[node name="GUI" type="Control" unique_id=856024091]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,16 +11,16 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_cpeuy")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=433511706]
 
-[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="ScoreLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=392476134]
 offset_left = 16.0
 offset_top = 16.0
 offset_right = 184.0
 offset_bottom = 120.0
 text = "1000 pts"
 
-[node name="LivesLabel" type="RichTextLabel" parent="CanvasLayer"]
+[node name="LivesLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=306755713]
 anchors_preset = -1
 anchor_top = 0.887
 anchor_right = 0.137

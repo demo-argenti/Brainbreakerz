@@ -10,15 +10,13 @@ extends Control
 @onready var Play = $Play
 
 
-func _process(delta: float) -> void:
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
-	pass
+func _process(delta: float) -> void: pass
+	#if $AudioStreamPlayer.playing == false:
+		#$AudioStreamPlayer.play()
 
 
 func _on_play_pressed() -> void:
-	Transition.transition("res://Levels/Warmin' Up.tscn")
-	pass 
+	Transition.transition("res://Levels/Warmin' Up.tscn",true)
 
 
 func _on_slide_1_button_pressed() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://bq8wwh1ci3eos"]
+[gd_scene format=3 uid="uid://bq8wwh1ci3eos"]
 
 [ext_resource type="Texture2D" uid="uid://bbmds7jmcutko" path="res://Animations/ANIM_ZDie/ANIM_ZDie0001.png" id="1_kumw0"]
 [ext_resource type="Texture2D" uid="uid://bjxcm5bnt2s0o" path="res://Animations/ANIM_ZDie/ANIM_ZDie0002.png" id="2_dnrx8"]
@@ -170,7 +170,7 @@ animations = [{
 "speed": 30.0
 }]
 
-[node name="ZombieDeath" type="AnimatedSprite2D"]
+[node name="ZombieDeath" type="AnimatedSprite2D" unique_id=1546918388]
 z_index = 2
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_71nmn")

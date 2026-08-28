@@ -1,39 +1,25 @@
 extends Control
 
+const vanilla_song_dir := "res://Song Charts"
+const song_button = preload("uid://bpkcagiqv86gv")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-func _process(delta):
+	var songs_dir := DirAccess.open(vanilla_song_dir)
 	
-	if $AudioStreamPlayer.playing == false:
-		$AudioStreamPlayer.play()
-	pass
-
-
-func _on_warmin_up_pressed() -> void:
-	
-	Transition.transition("res://Levels/Warmin' Up.tscn")
-
-
-
-func _on_raveyard_pressed() -> void:
-	Transition.transition("res://Levels/Raveyard.tscn")
-
-
-func _on_mortally_challenged_pressed() -> void:
-	Transition.transition("res://Levels/Mortally Challenged.tscn")
-
-
-func _on_yatatatata_pressed() -> void:
-	Transition.transition("res://Levels/Yatatatata.tscn")
+	for filename in songs_dir.get_files():
+		if filename.ends_with(".json"): # TODO decide on a file extension
+			var json = FileAccess.get_file_as_string(vanilla_song_dir+"/"+filename)
+			if FileAccess.get_open_error() != OK:
+				push_error(error_string(FileAccess.get_open_error()))
+				continue
+			
+			var song = SongDef.new()
+			if !song.fillout_from_dict(json): continue
+			
+			var new_button = song_button.instantiate()
+			new_button.song = song
+			%VBoxContainer.add_child(new_button)
 
 
 func _on_back_button_pressed() -> void:
 	Transition.transition("res://objects/Main_Menu.tscn")
-
-
-func _on_deadlock_pressed() -> void:
-	Transition.transition("res://Levels/Deadlock.tscn")
